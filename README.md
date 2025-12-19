@@ -113,7 +113,7 @@ sudo dnf install "cmake(KF5Config)" "cmake(KF5CoreAddons)" "cmake(KF5FrameworkIn
 ### Step 2: Then download, build and install
 Download, build and install from source script:
 ```
-git clone https://github.com/Sonic-DE/silver-theme
+git clone https://github.com/Sonic-DE/silver-theme.git
 ```
 
 ```
