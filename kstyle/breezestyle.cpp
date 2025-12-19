@@ -162,7 +162,7 @@ public:
     {
         painter->setRenderHints(QPainter::Antialiasing);
         // if the app sets an item delegate that isn't the default, use its drawing...
-        if (_proxy && _proxy->metaObject()->className() != QStringLiteral("QComboBoxDelegate")) {
+        if (_proxy && strcmp(_proxy->metaObject()->className(), "QComboBoxDelegate") != 0) {
             _proxy.data()->paint(painter, option, index);
             return;
         }

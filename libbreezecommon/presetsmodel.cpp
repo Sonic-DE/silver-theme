@@ -14,7 +14,7 @@ namespace Breeze
 
 QString PresetsModel::presetGroupName(const QString str)
 {
-    return QString("Windeco Preset %1").arg(str);
+    return QStringLiteral("Windeco Preset %1").arg(str);
 }
 
 //______________________________________________________________
@@ -67,7 +67,7 @@ void PresetsModel::writeSkeletonItemToConfigGroup(KConfigSkeletonItem *item, KCo
         for (int colorInt : *list) {
             QTextStream(&intListString) << colorInt;
             if (i < (list->count() - 1))
-                intListString += ",";
+                intListString += QStringLiteral(",");
             i++;
         }
         if (!intListString.isNull())
@@ -140,7 +140,7 @@ void PresetsModel::copyKwinBorderSizeFromPresetToExceptionBorderSize(KCoreConfig
     if (groupName.isEmpty() || !presetsConfig->hasGroup(groupName))
         return;
 
-    KCoreConfigSkeleton::ItemEnum *borderSize = static_cast<KCoreConfigSkeleton::ItemEnum *>(skeleton->findItem("BorderSize"));
+    KCoreConfigSkeleton::ItemEnum *borderSize = static_cast<KCoreConfigSkeleton::ItemEnum *>(skeleton->findItem(QStringLiteral("BorderSize")));
     KConfigGroup configGroup = presetsConfig->group(groupName);
     if (configGroup.hasKey(QStringLiteral("KwinBorderSize"))) {
         auto choiceList = borderSize->choices();
@@ -211,7 +211,7 @@ void PresetsModel::deleteBundledPresets(KConfig *presetsConfig)
         if (presetsConfig->hasGroup(groupName)) {
             KConfigGroup presetGroup = presetsConfig->group(groupName);
             if (presetGroup.hasKey("BundledPreset")) {
-                if (presetGroup.readEntry("BundledPreset") == "true") {
+                if (presetGroup.readEntry("BundledPreset") == QStringLiteral("true")) {
                     presetsConfig->deleteGroup(groupName);
                 }
             }
@@ -222,7 +222,7 @@ void PresetsModel::deleteBundledPresets(KConfig *presetsConfig)
 QStringList PresetsModel::readPresetsList(KConfig *presetsConfig)
 {
     QStringList presetsList;
-    QRegularExpression re("^Windeco Preset (.+)");
+    QRegularExpression re(QStringLiteral("^Windeco Preset (.+)"));
     for (const QString &group : presetsConfig->groupList()) {
         QRegularExpressionMatch match = re.match(group);
         if (match.hasMatch()) {
@@ -268,7 +268,7 @@ void PresetsModel::exportPreset(KConfig *presetsConfig, const QString &presetNam
         return;
 
     KConfigGroup inputPresetGroup = presetsConfig->group(groupName);
-    KConfigGroup outputGlobalGroup = outputPresetConfig->group("Klassy Window Decoration Preset File");
+    KConfigGroup outputGlobalGroup = outputPresetConfig->group(QStringLiteral("Klassy Window Decoration Preset File"));
     KConfigGroup outputPresetGroup = outputPresetConfig->group(groupName);
 
     outputGlobalGroup.writeEntry("version", klassyLongVersion());
@@ -302,9 +302,9 @@ PresetsModel::importPreset(KConfig *presetsConfig, const QString &filePath, QStr
         return PresetsErrorFlag::InvalidGlobalGroup;
 
     // perform validation first
-    if (!(importPresetConfig->hasGroup("Klassy Window Decoration Preset File")))
+    if (!(importPresetConfig->hasGroup(QStringLiteral("Klassy Window Decoration Preset File"))))
         return PresetsErrorFlag::InvalidGlobalGroup;
-    KConfigGroup importGlobalGroup = importPresetConfig->group("Klassy Window Decoration Preset File");
+    KConfigGroup importGlobalGroup = importPresetConfig->group(QStringLiteral("Klassy Window Decoration Preset File"));
     QString importVersion = importGlobalGroup.readEntry("version");
     bool versionValid = (importVersion == klassyLongVersion());
     if (!versionValid && !forceInvalidVersion)
@@ -360,7 +360,7 @@ bool PresetsModel::isKeyValid(const QString &key)
         }
     }
 
-    if (key == "KwinBorderSize" || key == "KwinButtonsOnLeft" || key == "KwinButtonsOnRight")
+    if (key == QStringLiteral("KwinBorderSize") || key == QStringLiteral("KwinButtonsOnLeft") || key == QStringLiteral("KwinButtonsOnRight"))
         return true; // additional valid key containing KWin border size setting from kwinrc
 
     return false;
@@ -370,8 +370,8 @@ bool PresetsModel::isKeyValid(const QString &key)
 void PresetsModel::importBundledPresets(KConfig *presetsConfig)
 {
     // don't copy if BundledWindecoPresetsImportedVersion has been set for the current release version
-    if (presetsConfig->hasGroup("Global")) {
-        KConfigGroup globalGroup = presetsConfig->group("Global");
+    if (presetsConfig->hasGroup(QStringLiteral("Global"))) {
+        KConfigGroup globalGroup = presetsConfig->group(QStringLiteral("Global"));
         if (globalGroup.hasKey("BundledWindecoPresetsImportedVersion")) {
             if (globalGroup.readEntry("BundledWindecoPresetsImportedVersion") == klassyLongVersion()) {
                 return;
@@ -386,16 +386,16 @@ void PresetsModel::importBundledPresets(KConfig *presetsConfig)
     PresetsModel::deleteBundledPresets(presetsConfig);
 
     for (QString libraryPath : QCoreApplication::libraryPaths()) {
-        libraryPath += "/org.kde.kdecoration3.kcm/klassydecoration/presets";
+        libraryPath += QStringLiteral("/org.kde.kdecoration3.kcm/klassydecoration/presets");
         QDir presetsDir(libraryPath);
         if (presetsDir.exists()) {
             QStringList filters;
-            filters << "*.klpw";
+            filters << QStringLiteral("*.klpw");
             presetsDir.setNameFilters(filters);
             QStringList presetFiles = presetsDir.entryList();
 
             for (QString presetFile : presetFiles) {
-                presetFile = libraryPath + "/" + presetFile; // set absolute full path
+                presetFile = libraryPath + QStringLiteral("/") + presetFile; // set absolute full path
                 QString presetName;
                 QString error;
 
@@ -407,7 +407,7 @@ void PresetsModel::importBundledPresets(KConfig *presetsConfig)
         }
     }
 
-    KConfigGroup globalGroup = presetsConfig->group("Global");
+    KConfigGroup globalGroup = presetsConfig->group(QStringLiteral("Global"));
     globalGroup.writeEntry("BundledWindecoPresetsImportedVersion", klassyLongVersion());
     presetsConfig->sync();
 }

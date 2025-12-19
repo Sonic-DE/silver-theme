@@ -81,7 +81,7 @@ ConfigWidget::ConfigWidget(QObject *parent, const KPluginMetaData &data, const Q
     widget()->setTabOrder(m_presetsButton, m_ui.tabWidget);
 
     // hide the title if not klassy-settings
-    if (widget()->window() && qAppName() != "klassy-settings") {
+    if (widget()->window() && qAppName() != QStringLiteral("klassy-settings")) {
         m_kPageWidget = widget()->window()->findChild<KPageWidget *>();
         if (m_kPageWidget) {
             KPageWidgetItem *currentPage = m_kPageWidget->currentPage();
@@ -136,7 +136,7 @@ ConfigWidget::ConfigWidget(QObject *parent, const KPluginMetaData &data, const Q
     connect(this, &ConfigWidget::saved, m_buttonColorsDialog, &ButtonColors::load);
 
     // set the long version string if from the git master
-    m_ui.version->setText("v" + klassyLongVersion());
+    m_ui.version->setText(QStringLiteral("v") + klassyLongVersion());
 
     connect(m_ui.systemIconGenerationButton, &QAbstractButton::clicked, this, &ConfigWidget::systemIconGenerationButtonClicked);
     connect(m_ui.buttonSizingButton, &QAbstractButton::clicked, this, &ConfigWidget::buttonSizingButtonClicked);
@@ -828,17 +828,17 @@ void ConfigWidget::getButtonsOrderFromKwinConfig()
 {
     QMap<DecorationButtonType, QChar> buttonNames;
     // list modified from https://invent.kde.org/plasma/kwin/-/blob/master/src/decorations/settings.cpp
-    buttonNames[DecorationButtonType::Menu] = QChar('M');
-    buttonNames[DecorationButtonType::ApplicationMenu] = QChar('N');
-    buttonNames[DecorationButtonType::OnAllDesktops] = QChar('S');
-    buttonNames[DecorationButtonType::KeepAbove] = QChar('F');
-    buttonNames[DecorationButtonType::KeepBelow] = QChar('B');
-    buttonNames[DecorationButtonType::Shade] = QChar('L');
-    buttonNames[DecorationButtonType::ContextHelp] = QChar('H');
-    buttonNames[DecorationButtonType::Minimize] = QChar('I');
-    buttonNames[DecorationButtonType::Maximize] = QChar('A');
-    buttonNames[DecorationButtonType::Close] = QChar('X');
-    buttonNames[DecorationButtonType::Spacer] = QChar('_');
+    buttonNames[DecorationButtonType::Menu] = QChar(u'M');
+    buttonNames[DecorationButtonType::ApplicationMenu] = QChar(u'N');
+    buttonNames[DecorationButtonType::OnAllDesktops] = QChar(u'S');
+    buttonNames[DecorationButtonType::KeepAbove] = QChar(u'F');
+    buttonNames[DecorationButtonType::KeepBelow] = QChar(u'B');
+    buttonNames[DecorationButtonType::Shade] = QChar(u'L');
+    buttonNames[DecorationButtonType::ContextHelp] = QChar(u'H');
+    buttonNames[DecorationButtonType::Minimize] = QChar(u'I');
+    buttonNames[DecorationButtonType::Maximize] = QChar(u'A');
+    buttonNames[DecorationButtonType::Close] = QChar(u'X');
+    buttonNames[DecorationButtonType::Spacer] = QChar(u'_');
 
     QString buttonsOnLeft;
     QString buttonsOnRight;
@@ -908,22 +908,22 @@ void ConfigWidget::getButtonsOrderFromKwinConfig()
 
     // find leftEdgePriorityButtons
     for (int i = 0; i < 3; i++) {
-        if (buttonsOnLeft.indexOf(QChar('X')) == i) {
+        if (buttonsOnLeft.indexOf(QChar(u'X')) == i) {
             leftEdgePriorityButtons.insert(i, DecorationButtonType::Close);
-        } else if (buttonsOnLeft.indexOf(QChar('A')) == i) {
+        } else if (buttonsOnLeft.indexOf(QChar(u'A')) == i) {
             leftEdgePriorityButtons.insert(i, DecorationButtonType::Maximize);
-        } else if (buttonsOnLeft.indexOf(QChar('I')) == i) {
+        } else if (buttonsOnLeft.indexOf(QChar(u'I')) == i) {
             leftEdgePriorityButtons.insert(i, DecorationButtonType::Minimize);
         }
     }
 
     // find rightEdgePrioritybuttons
     for (int i = m_visibleButtonsOrder.count() - 1; i >= m_visibleButtonsOrder.count() - 3; i--) {
-        if (buttonsOnRight.lastIndexOf(QChar('X')) == i) { // lastIndexOf in-case a weirdo adds more than one button of the same type
+        if (buttonsOnRight.lastIndexOf(QChar(u'X')) == i) { // lastIndexOf in-case a weirdo adds more than one button of the same type
             rightEdgePriorityButtons.insert(i, DecorationButtonType::Close);
-        } else if (buttonsOnRight.lastIndexOf(QChar('A')) == i) {
+        } else if (buttonsOnRight.lastIndexOf(QChar(u'A')) == i) {
             rightEdgePriorityButtons.insert(i, DecorationButtonType::Maximize);
-        } else if (buttonsOnRight.lastIndexOf(QChar('I')) == i) {
+        } else if (buttonsOnRight.lastIndexOf(QChar(u'I')) == i) {
             rightEdgePriorityButtons.insert(i, DecorationButtonType::Minimize);
         }
     }

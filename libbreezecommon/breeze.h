@@ -114,17 +114,17 @@ enum class DecorationButtonType {
 
 // list of keys used for window decoration exceptions
 static QStringList windecoExceptionKeys = {
-    "Enabled",
-    "ExceptionProgramNamePattern",
-    "ExceptionWindowPropertyPattern",
-    "ExceptionWindowPropertyType",
-    "ExceptionPreset",
-    "HideTitleBar",
-    "OpaqueTitleBar",
-    "ExceptionMatchTitleBarToApplicationColor",
-    "ExceptionBorder",
-    "BorderSize",
-    "PreventApplyOpacityToHeader",
+    QStringLiteral("Enabled"),
+    QStringLiteral("ExceptionProgramNamePattern"),
+    QStringLiteral("ExceptionWindowPropertyPattern"),
+    QStringLiteral("ExceptionWindowPropertyType"),
+    QStringLiteral("ExceptionPreset"),
+    QStringLiteral("HideTitleBar"),
+    QStringLiteral("OpaqueTitleBar"),
+    QStringLiteral("ExceptionMatchTitleBarToApplicationColor"),
+    QStringLiteral("ExceptionBorder"),
+    QStringLiteral("BorderSize"),
+    QStringLiteral("PreventApplyOpacityToHeader"),
 };
 
 // KDECORATION-------------------------------------------------------------

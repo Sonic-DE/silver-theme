@@ -1,7 +1,6 @@
 add_definitions(-DTRANSLATION_DOMAIN="klassy_kwin_deco")
 
 ################# includes #################
-include_directories(${CMAKE_SOURCE_DIR}/libbreezecommon)
 include_directories(${CMAKE_BINARY_DIR}/libbreezecommon6)
 
 ################# newt target #################

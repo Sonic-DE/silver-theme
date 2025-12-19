@@ -25,7 +25,7 @@ ExceptionDialog::ExceptionDialog(KSharedConfig::Ptr config, KSharedConfig::Ptr p
 
     // disable controls if this is the default exceptions list
     QWidget *parentExceptionListWidget = parentWidget();
-    if (parentExceptionListWidget && parentExceptionListWidget->objectName() == "defaultExceptions") {
+    if (parentExceptionListWidget && parentExceptionListWidget->objectName() == QStringLiteral("defaultExceptions")) {
         m_ui.borderSizeCheckBox->setDisabled(true);
         m_ui.borderSizeComboBox->setDisabled(true);
         m_ui.detectDialogButton->setDisabled(true);

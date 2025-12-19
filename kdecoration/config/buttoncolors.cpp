@@ -658,8 +658,8 @@ void ButtonColors::save(const bool reloadKwinConfig)
     m_internalSettings->setButtonBackgroundOpacity(true, m_ui->buttonBackgroundOpacityActive->value());
     m_internalSettings->setButtonBackgroundOpacity(false, m_ui->buttonBackgroundOpacityInactive->value());
 
-    m_internalSettings->setButtonOverrideColorsLockStates(true, encodeColorOverrideLockStates(true));
-    m_internalSettings->setButtonOverrideColorsLockStates(false, encodeColorOverrideLockStates(false));
+    m_internalSettings->setButtonOverrideColorsLockStates(true, QString::fromUtf8(encodeColorOverrideLockStates(true)));
+    m_internalSettings->setButtonOverrideColorsLockStates(false, QString::fromUtf8(encodeColorOverrideLockStates(true)));
 
     // encodeColorOverrideTableColumns
     bool resetActive = !m_ui->buttonColorOverrideToggleActive->isChecked();
@@ -667,14 +667,16 @@ void ButtonColors::save(const bool reloadKwinConfig)
     for (int i = 0; i < InternalSettings::EnumButtonOverrideColorsActiveButtonType::COUNT; i++) {
         m_internalSettings->setButtonOverrideColorsActive(
             i,
-            encodeColorOverrideTableColumn(static_cast<ConfigWidget *>(m_parent)->m_allCustomizableButtonsOrder.indexOf(static_cast<DecorationButtonType>(i)),
-                                           true,
-                                           resetActive));
+            QString::fromUtf8(encodeColorOverrideTableColumn(
+                static_cast<ConfigWidget *>(m_parent)->m_allCustomizableButtonsOrder.indexOf(static_cast<DecorationButtonType>(i)),
+                true,
+                resetActive)));
         m_internalSettings->setButtonOverrideColorsInactive(
             i,
-            encodeColorOverrideTableColumn(static_cast<ConfigWidget *>(m_parent)->m_allCustomizableButtonsOrder.indexOf(static_cast<DecorationButtonType>(i)),
-                                           false,
-                                           resetInactive));
+            QString::fromUtf8(encodeColorOverrideTableColumn(
+                static_cast<ConfigWidget *>(m_parent)->m_allCustomizableButtonsOrder.indexOf(static_cast<DecorationButtonType>(i)),
+                false,
+                resetInactive)));
     }
 
     m_internalSettings->save();
@@ -806,9 +808,9 @@ void ButtonColors::updateChanged()
         modified = true;
     else if (m_ui->buttonBackgroundOpacityInactive->value() != m_internalSettings->buttonBackgroundOpacity(false))
         modified = true;
-    else if (encodeColorOverrideLockStates(true) != m_internalSettings->buttonOverrideColorsLockStates(true))
+    else if (QString::fromUtf8(encodeColorOverrideLockStates(true)) != m_internalSettings->buttonOverrideColorsLockStates(true))
         modified = true;
-    else if (encodeColorOverrideLockStates(false) != m_internalSettings->buttonOverrideColorsLockStates(false))
+    else if (QString::fromUtf8(encodeColorOverrideLockStates(false)) != m_internalSettings->buttonOverrideColorsLockStates(false))
         modified = true;
     else if (m_overrideColorsLoaded.active && !m_ui->buttonColorOverrideToggleActive->isChecked())
         modified = true;

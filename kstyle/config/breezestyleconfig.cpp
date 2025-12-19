@@ -15,7 +15,9 @@
 #endif
 
 #include <QDialog>
+#include <QObject>
 #include <QRegularExpression>
+#include <QWidget>
 
 extern "C" {
 Q_DECL_EXPORT QWidget *allocate_kstyle_config(QWidget *parent)
@@ -54,10 +56,10 @@ StyleConfig::StyleConfig(QWidget *parent)
 
 #if KLASSY_GIT_MASTER
     // set the long version string if from the git master
-    _version->setText("v" + QString(KLASSY_VERSION) + ".git");
+    _version->setText(QStringLiteral("v") + QStringLiteral(KLASSY_VERSION) + QStringLiteral(".git"));
 
 #else
-    _version->setText("v" + QString(KLASSY_VERSION));
+    _version->setText(QStringLiteral("v") + QStringLiteral(KLASSY_VERSION));
 #endif
 
     // add corner icon
@@ -151,7 +153,7 @@ void StyleConfig::defaults()
     StyleConfigData::self()->setDefaults();
     load();
 
-    emit changed(!isDefaults());
+    Q_EMIT changed(!isDefaults());
 }
 
 bool StyleConfig::isDefaults()
@@ -240,7 +242,7 @@ void StyleConfig::updateChanged()
     else if (_menuOpacity->value() != StyleConfigData::menuOpacity())
         modified = true;
 
-    emit changed(modified);
+    Q_EMIT changed(modified);
 }
 
 //__________________________________________________________________

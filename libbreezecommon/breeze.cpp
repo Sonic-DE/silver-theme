@@ -13,9 +13,9 @@ QString klassyLongVersion()
 {
     QString version;
 
-    version = QString(KLASSY_VERSION);
+    version = QStringLiteral(KLASSY_VERSION);
 #if KLASSY_GIT_MASTER
-    version += ".git";
+    version += QStringLiteral(".git");
 #endif
     return version;
 }

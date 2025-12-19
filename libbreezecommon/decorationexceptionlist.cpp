@@ -23,9 +23,9 @@ void DecorationExceptionList::readConfig(KSharedConfig::Ptr config, const bool r
     // set the default exceptions that are bundled with Klassy
     InternalSettingsPtr defaultException0(new InternalSettings());
     defaultException0->setExceptionWindowPropertyType(InternalSettings::EnumExceptionWindowPropertyType::ExceptionWindowClassName);
-    defaultException0->setExceptionWindowPropertyPattern("");
+    defaultException0->setExceptionWindowPropertyPattern(QStringLiteral(""));
     defaultException0->setOpaqueTitleBar(false);
-    defaultException0->setExceptionProgramNamePattern("VirtualBox.*");
+    defaultException0->setExceptionProgramNamePattern(QStringLiteral("VirtualBox.*"));
     defaultException0->setPreventApplyOpacityToHeader(true);
     _defaultExceptions.append(defaultException0);
 
@@ -125,13 +125,13 @@ void DecorationExceptionList::writeConfig(KSharedConfig::Ptr config)
 //_______________________________________________________________________
 QString DecorationExceptionList::exceptionGroupName(int index)
 {
-    return QString("Windeco Exception %1").arg(index);
+    return QStringLiteral("Windeco Exception %1").arg(index);
 }
 
 //_______________________________________________________________________
 QString DecorationExceptionList::defaultExceptionGroupName(int index)
 {
-    return QString("Default Windeco Exception %1").arg(index);
+    return QStringLiteral("Default Windeco Exception %1").arg(index);
 }
 
 //______________________________________________________________
@@ -154,7 +154,7 @@ void DecorationExceptionList::writeConfig(KCoreConfigSkeleton *skeleton, KConfig
 void DecorationExceptionList::writeDefaultsConfig(KCoreConfigSkeleton *skeleton, KConfig *config, const QString &groupName)
 {
     // list of items to be written
-    QStringList keys = {"Enabled"};
+    QStringList keys = {QStringLiteral("Enabled")};
 
     // write all items
     for (auto key : keys) {

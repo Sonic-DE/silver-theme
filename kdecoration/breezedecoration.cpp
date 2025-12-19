@@ -35,6 +35,7 @@
 #include <QDBusPendingReply>
 #include <QHoverEvent>
 #include <QPainter>
+#include <QProcess>
 #include <QTextStream>
 #include <QTimer>
 
@@ -298,7 +299,7 @@ void Decoration::init()
     auto c = window();
 
     reconfigureMain(true);
-    
+
     // active state change animation
     // It is important start and end value are of the same type, hence 0.0 and not just 0
     m_animation->setStartValue(0.0);
@@ -827,7 +828,7 @@ void Decoration::setGlobalLookAndFeelOptions(QString lookAndFeelPackageName)
         }
 
         if (!presetToLoad.isEmpty()) { // if matching look-and-feel-package, load the associated Klassy window decoration preset
-            system("klassy-settings -w \"" + presetToLoad.toUtf8() + "\" &");
+            QProcess::startDetached(QStringLiteral("klassy-settings"), {QStringLiteral("-w"), presetToLoad.toUtf8()});
         }
     }
 }

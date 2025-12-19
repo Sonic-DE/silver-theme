@@ -65,7 +65,7 @@ void LoadPreset::addButtonClicked()
         return;
     }
 
-    QRegularExpression re("\\w+");
+    QRegularExpression re(QStringLiteral("\\w+"));
     while (!re.match(m_addDialog->m_ui->presetName->text()).hasMatch()) {
         QMessageBox::warning(this, i18n("Warning - Klassy Settings"), i18n("Please provide a name for the Preset"));
         m_addDialog->setWindowTitle(i18n("Add Preset - Klassy Settings"));
@@ -144,7 +144,7 @@ void LoadPreset::removeButtonClicked()
 
 void LoadPreset::importButtonClicked()
 {
-    QStringList files = QFileDialog::getOpenFileNames(this, i18n("Select Klassy Preset to Import"), "", i18n("Klassy Preset (*.klpw)"));
+    QStringList files = QFileDialog::getOpenFileNames(this, i18n("Select Klassy Preset to Import"), QStringLiteral(""), i18n("Klassy Preset (*.klpw)"));
     for (QString filePath : files) {
         QString presetName;
         QString error;
@@ -218,9 +218,12 @@ void LoadPreset::exportButtonClicked()
 
     QString fileBaseName = m_ui->presetsList->selectedItems().first()->text();
     fileBaseName = fileBaseName.simplified(); // replace whitespace with spaces
-    fileBaseName.replace(" ", "_"); // replace spaces with underscores
+    fileBaseName.replace(QStringLiteral(" "), QStringLiteral("_")); // replace spaces with underscores
 
-    QString filePath = QFileDialog::getSaveFileName(this, i18n("Export Klassy Preset to File"), "~/" + fileBaseName + ".klpw", i18n("Klassy Preset (*.klpw)"));
+    QString filePath = QFileDialog::getSaveFileName(this,
+                                                    i18n("Export Klassy Preset to File"),
+                                                    QStringLiteral("~/") + fileBaseName + QStringLiteral(".klpw"),
+                                                    i18n("Klassy Preset (*.klpw)"));
     if (filePath.isEmpty())
         return;
     QDir dir;

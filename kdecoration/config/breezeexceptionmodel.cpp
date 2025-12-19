@@ -41,7 +41,7 @@ QVariant ExceptionModel::data(const QModelIndex &index, int role) const
                 } else if (configuration->exceptionWindowPropertyType() == InternalSettings::EnumExceptionWindowPropertyType::ExceptionWindowTitle) {
                     windowPropertyRegexpStr = i18n("Title");
                 }
-                windowPropertyRegexpStr += ":\t" + configuration->exceptionWindowPropertyPattern();
+                windowPropertyRegexpStr += QStringLiteral(":\t") + configuration->exceptionWindowPropertyPattern();
             }
             return windowPropertyRegexpStr;
         case ColumnProgramNameRegExp:

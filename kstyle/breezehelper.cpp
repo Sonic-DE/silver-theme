@@ -54,7 +54,7 @@ static const auto radioCheckSunkenDarkeningFactor = 110;
 Helper::Helper(KSharedConfig::Ptr config)
     : QObject()
     , _config(std::move(config))
-    , _kwinConfig(KSharedConfig::openConfig("kwinrc"))
+    , _kwinConfig(KSharedConfig::openConfig(QStringLiteral("kwinrc")))
     , _decorationConfig(DecorationSettingsProvider::self()->internalSettings())
 {
 #if KLASSY_STYLE_DEBUG_MODE
