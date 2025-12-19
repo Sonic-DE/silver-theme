@@ -15,11 +15,11 @@
         "Name": "Kisweet Dark - Bottom Panel (Silver)",
         "Website": "https://github.com/Sonic-DE/silver-theme"
 ========
-        "Id": "org.kde.klassykairndarkbottompanel.desktop",
+        "Id": "org.kde.silverkairndarkbottompanel.desktop",
         "License": "LGPL 2.1",
         "Name": "Kairn Dark - Bottom Panel (Klassy)",
-        "Website": "https://github.com/paulmcauley/klassy"
->>>>>>>> upstream/master:look-and-feel/org.kde.klassykairndarkbottompanel.desktop/metadata.json
+        "Website": "https://github.com/paulmcauley/silver"
+>>>>>>>> upstream/master:look-and-feel/org.kde.silverkairndarkbottompanel.desktop/metadata.json
     },
     "X-Plasma-APIVersion": "2"
 }

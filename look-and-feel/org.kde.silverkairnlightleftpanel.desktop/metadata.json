@@ -15,11 +15,11 @@
         "Name": "Kisweet Light - Left Panel (Silver)",
         "Website": "https://github.com/Sonic-DE/silver-theme"
 ========
-        "Id": "org.kde.klassykairnlightleftpanel.desktop",
+        "Id": "org.kde.silverkairnlightleftpanel.desktop",
         "License": "LGPL 2.1",
         "Name": "Kairn Light - Left Panel (Klassy)",
-        "Website": "https://github.com/paulmcauley/klassy"
->>>>>>>> upstream/master:look-and-feel/org.kde.klassykairnlightleftpanel.desktop/metadata.json
+        "Website": "https://github.com/paulmcauley/silver"
+>>>>>>>> upstream/master:look-and-feel/org.kde.silverkairnlightleftpanel.desktop/metadata.json
     },
     "X-Plasma-APIVersion": "2"
 }

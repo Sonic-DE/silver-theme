@@ -1,4 +1,4 @@
-loadTemplate("org.kde.klassy.plasma.desktop.leftPanel");
+loadTemplate("org.kde.silver.plasma.desktop.leftPanel");
 
 const kwinConfig = ConfigFile('kwinrc');
 

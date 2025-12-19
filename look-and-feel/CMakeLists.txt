@@ -1,8 +1,8 @@
-install(DIRECTORY org.kde.klassykairndarkbottompanel.desktop
+install(DIRECTORY org.kde.silverkairndarkbottompanel.desktop
         DESTINATION ${KDE_INSTALL_DATADIR}/plasma/look-and-feel)
-install(DIRECTORY org.kde.klassykairndarkleftpanel.desktop
+install(DIRECTORY org.kde.silverkairndarkleftpanel.desktop
         DESTINATION ${KDE_INSTALL_DATADIR}/plasma/look-and-feel)
-install(DIRECTORY org.kde.klassykairnlightbottompanel.desktop
+install(DIRECTORY org.kde.silverkairnlightbottompanel.desktop
         DESTINATION ${KDE_INSTALL_DATADIR}/plasma/look-and-feel)
-install(DIRECTORY org.kde.klassykairnlightleftpanel.desktop
+install(DIRECTORY org.kde.silverkairnlightleftpanel.desktop
         DESTINATION ${KDE_INSTALL_DATADIR}/plasma/look-and-feel)
