@@ -1,6 +1,7 @@
 /*
  * SPDX-FileCopyrightText: 2014 Hugo Pereira Da Costa <hugo.pereira@free.fr>
  * SPDX-FileCopyrightText: 2022-2026 Paul A McAuley <kde@paulmcauley.com>
+ * SPDX-FileCopyrightText: 2026 Joseph Crowell <joseph.w.crowell@gmail.com>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -19,7 +20,7 @@ DecorationSettingsProvider *DecorationSettingsProvider::s_self = nullptr;
 
 //__________________________________________________________________
 DecorationSettingsProvider::DecorationSettingsProvider()
-    : m_config(KSharedConfig::openConfig(QStringLiteral("klassy/klassyrc")))
+    : m_config(KSharedConfig::openConfig(QStringLiteral("silver/silverrc")))
     , m_presetsConfig(KSharedConfigPtr())
 {
     m_defaultSettings = InternalSettingsPtr(new InternalSettings());
@@ -71,7 +72,7 @@ InternalSettingsPtr DecorationSettingsProvider::internalSettings()
             // load window decoration preset if set
             if (!internalSettings->exceptionPreset().isEmpty()) {
                 if (!m_presetsConfig) {
-                    KSharedConfigPtr presetsConfig = KSharedConfig::openConfig(QStringLiteral("klassy/windecopresetsrc"));
+                    KSharedConfigPtr presetsConfig = KSharedConfig::openConfig(QStringLiteral("silver/windecopresetsrc"));
                     m_presetsConfig.swap(presetsConfig);
                 }
                 if (!m_presetsConfig) {

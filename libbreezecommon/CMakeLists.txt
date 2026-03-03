@@ -34,13 +34,13 @@ endif()
 
 kconfig_add_kcfg_files(breezecommon_LIB_SRCS breezesettings.kcfgc)
 
-add_library(klassycommon${QT_MAJOR_VERSION} ${breezecommon_LIB_SRCS})
+add_library(silvercommon${QT_MAJOR_VERSION} ${breezecommon_LIB_SRCS})
 
-generate_export_header(klassycommon${QT_MAJOR_VERSION}
+generate_export_header(silvercommon${QT_MAJOR_VERSION}
     BASE_NAME breezecommon
     EXPORT_FILE_NAME breezecommon_export.h)
 
-target_link_libraries(klassycommon${QT_MAJOR_VERSION}
+target_link_libraries(silvercommon${QT_MAJOR_VERSION}
     PUBLIC
         Qt${QT_MAJOR_VERSION}::Core
         Qt${QT_MAJOR_VERSION}::Gui
@@ -53,17 +53,17 @@ target_link_libraries(klassycommon${QT_MAJOR_VERSION}
         KF${QT_MAJOR_VERSION}::I18n)
 
 if(HAVE_QTDBUS)
-    target_link_libraries(klassycommon${QT_MAJOR_VERSION}
+    target_link_libraries(silvercommon${QT_MAJOR_VERSION}
     PUBLIC
         Qt${QT_MAJOR_VERSION}::DBus
     )
 endif()
 
-target_link_libraries(klassycommon${QT_MAJOR_VERSION} PUBLIC KF6::ColorScheme)
+target_link_libraries(silvercommon${QT_MAJOR_VERSION} PUBLIC KF6::ColorScheme)
 
-set_target_properties(klassycommon${QT_MAJOR_VERSION} PROPERTIES
+set_target_properties(silvercommon${QT_MAJOR_VERSION} PROPERTIES
     VERSION ${PROJECT_VERSION}
     SOVERSION ${PROJECT_VERSION_MAJOR}
-    OUTPUT_NAME klassycommon${QT_MAJOR_VERSION})
+    OUTPUT_NAME silvercommon${QT_MAJOR_VERSION})
 
-install(TARGETS klassycommon${QT_MAJOR_VERSION} ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
+install(TARGETS silvercommon${QT_MAJOR_VERSION} ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

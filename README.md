@@ -1,16 +1,16 @@
-# Klassy
+# Silver
 <img align="right" src="screenshots/highlight_gifs/kite_demo.gif?raw=true" alt="kite window decoration" />
 
 ##### Table of Contents
-[Overview](#overview)  
->[Main _Kite_ Global theme](#kite)  
+[Overview](#overview)
+>[Main _Kite_ Global theme](#kite)
 >[Customizability](#customizability)
 
-[Installation](#installation)  
->[Pre-built packages](#prebuilt)  
->[Compile from source](#compile)  
+[Installation](#installation)
+>[Pre-built packages](#prebuilt)
+>[Compile from source](#compile)
 >[Gentoo Linux package](#gentoo-linux-package)
-   
+
 [Donations](#donations)
 
 &nbsp;
@@ -18,7 +18,7 @@
 <a name="overview"/>
 
 ## Overview
-_Klassy_ is a theming utility for the KDE Plasma desktop environment. It consists of a Global Theme which applies several components: Window Decoration, Application Style, Colour Scheme, Plasma style, and Icons. The Klassy Application Style has arguably the best scrollbars on any platform.
+_Silver_ is a theming utility for the KDE Plasma desktop environment. It consists of a Global Theme which applies several components: Window Decoration, Application Style, Colour Scheme, Plasma style, and Icons. The Silver Application Style has arguably the best scrollbars on any platform.
 
 <a name="kite"/>
 
@@ -33,43 +33,43 @@ Left panel theme selection (recommended for 16:9 laptops):
 Bottom panel theme selection (recommended for everything else):
 ![Bottom panel dark/light theme selection](screenshots/bottom_panel_light_dark.png?raw=true "Bottom panel dark/light theme selection")
 
-The default _Kite_ theme is designed to be pragmatic for long-term every-day use, not for instant likes on social media or "ricing" sites. _Kite_ is the result of Paul A McAuley evolving the _Breeze_ theme to be arguably more polished and usable, with influences from the original Breeze design, the "Blue Ocean" refresh, and the original KDE 1. A kite floats in the breeze! [See the _Kite defaults design decisions_ document for full design details](https://github.com/paulmcauley/klassy/discussions/263).
+The default _Kite_ theme is designed to be pragmatic for long-term every-day use, not for instant likes on social media or "ricing" sites. _Kite_ is the result of Paul A McAuley evolving the _Breeze_ theme to be arguably more polished and usable, with influences from the original Breeze design, the "Blue Ocean" refresh, and the original KDE 1. A kite floats in the breeze! [See the _Kite defaults design decisions_ document for full design details](https://github.com/Sonic-DE/silver-theme/discussions/263).
 
 <a name="customizability"/>
 
 ## Customizability
-_Klassy_ is highly customizable - you can make your system as classy or unclassy as you like!
+_Silver_ is highly customizable - you can make your system as classy or unclassy as you like!
 
-For easy customization, the _Klassy Settings_ GUI application is installed. `klassy-settings` also has command-line options to allow Preset file imports, load Presets and generate system icons. Run `klassy-settings --help` for details.
+For easy customization, the _Silver Settings_ GUI application is installed. `silver-settings` also has command-line options to allow Preset file imports, load Presets and generate system icons. Run `silver-settings --help` for details.
 
-It is recommended to first try the bundled Presets in Klassy Settings before any fine-tuning:
+It is recommended to first try the bundled Presets in Silver Settings before any fine-tuning:
 ![Preset selection](screenshots/presets_opal_fruits.png?raw=true "Preset selection")
 
 * Provides numerous built-in perfectly-pixel-snapped button icons, as well as the ability to display `window-*-symbolic` system icons:
   ![Screenshot of Button icons menu](screenshots/button_icon_menu.png?raw=true "Screenshot of Button icons menu")
->(Above Preset: _Glassy Klassy_)
+>(Above Preset: _Glassy Silver_)
 
-* Provides an Application Style aso that icons in dockable panels, MDI applications and application tabs are consistent (make sure to enable the _Klassy_ Application Style):
-  
+* Provides an Application Style aso that icons in dockable panels, MDI applications and application tabs are consistent (make sure to enable the _Silver_ Application Style):
+
   <img src="screenshots/mdi_test.png" alt="Example of MDI window and dockable panels" width="512">
 >(Above Preset: _Chroma_)
 
-* Provides an Icon theme so that context menus and GTK applications consistently match the main titlebar icons (make sure to enable the _Klassy_ system icon theme and configure the icons by clicking "System Icon Generation..." in _Klassy Settings_):
-  
-  <img src="screenshots/gedit.png" alt="Screenshot of Klassy with icon theme" width="512">
+* Provides an Icon theme so that context menus and GTK applications consistently match the main titlebar icons (make sure to enable the _Silver_ system icon theme and configure the icons by clicking "System Icon Generation..." in _Silver Settings_):
+
+  <img src="screenshots/gedit.png" alt="Screenshot of Silver with icon theme" width="512">
 
 * Configurable button size, shape, translucency, colours and outlining.
 
 * Default buttons are "Integrated Rounded Rectangles" with translucent outlined accent colours, with a large clickable area. These are designed to complement the "Blue Ocean" design refresh, along with the system accent colour feature. Shown below with _Klasse_ icons (inspired by KDE1):
-  
+
    ![Default Integrated Rounded rectangle button style, dark](screenshots/highlight_gifs/icdark.gif?raw=true "Default Integrated Rounded rectangle button style, dark")
-  
+
 * Alternative "Traffic lights" background colours:
-  
+
    ![Traffic lights button style, dark](screenshots/highlight_gifs/icdark_trafficlights.gif?raw=true "Traffic lights button style, dark")
 
 * Alternative "Full-height Rounded Rectangle" button shape (_ClassiK v3_ preset):
-  
+
    ![Rounded rectangle button style, dark](screenshots/highlight_gifs/cdark.gif?raw=true "Default button style, dark")![Rounded Rectangle button style, light](screenshots/highlight_gifs/clight.gif?raw=true "Default button style, light")
    ![Pink button style, dark](screenshots/highlight_gifs/pdark.gif?raw=true "Green button style, dark")![Pink button style, light](screenshots/highlight_gifs/plight.gif?raw=true "Pink button style, light")
    ![Turquoise button style, dark](screenshots/highlight_gifs/tdark.gif?raw=true "Turquoise button style, dark")![Turquoise button style, light](screenshots/highlight_gifs/tlight.gif?raw=true "Turquoise button style, light")
@@ -92,7 +92,7 @@ It is recommended to first try the bundled Presets in Klassy Settings before any
 ![Composite screenshot of thin window outlines with Contrast blended with accent colour (dark)](screenshots/thin_window_outline_dark_contrast_accent.png?raw=true "Composite screenshot of thin window outlines with Contrast blended with accent colour (dark)")
 
 * Configurable scrollbars:
- 
+
 <img src="screenshots/configurable_scrollbars.png" width="80%">![Default scrollbar animation](screenshots/scrollbar_mouseover.gif?raw=true "Default scrollbar animation")
 
 * Configurable animations
@@ -102,14 +102,14 @@ It is recommended to first try the bundled Presets in Klassy Settings before any
 <a name="installation"/>
 
 ## Installation
-_Klassy_ requires Plasma 6.3, or later, so please check you have this in kinfocenter before trying to install. You can either download the pre-built packages or compile from source.
+_Silver_ requires Plasma 6.3, or later, so please check you have this in kinfocenter before trying to install. You can either download the pre-built packages or compile from source.
 <a name="prebuilt"/>
 
 ### Pre-built packages
-[Respositories are available from the Open Build Service](https://software.opensuse.org/download.html?project=home%3Apaulmcauley&package=klassy) for OpenSUSE, Debian/Ubuntu, Fedora, Mageia and Arch/Manjaro to keep you on the latest version.
+[Respositories are available from the Open Build Service](https://software.opensuse.org/download.html?project=home%3Apaulmcauley&package=silver) for OpenSUSE, Debian/Ubuntu, Fedora, Mageia and Arch/Manjaro to keep you on the latest version.
 
 
-Raw .rpm, .deb etc. binary packages are also available from the Open Build Service link above if you choose "Grab binary packages directly". 
+Raw .rpm, .deb etc. binary packages are also available from the Open Build Service link above if you choose "Grab binary packages directly".
 &nbsp;
 &nbsp;
 
@@ -153,11 +153,11 @@ sudo dnf install "cmake(KF5Config)" "cmake(KF5CoreAddons)" "cmake(KF5FrameworkIn
 ### Step 2: Then download, build and install
 Download, build and install from source script:
 ```
-git clone https://github.com/paulmcauley/klassy
+git clone https://github.com/Sonic-DE/silver-theme.git
 ```
 
 ```
-cd klassy
+cd silver
 ```
 
 ```
@@ -176,8 +176,8 @@ Uninstall build script:
 
 &nbsp;
 ### Gentoo Linux package
-There is a package available for Klassy in the [guru](https://github.com/gentoo/guru) repository.
-You can install Klassy on Gentoo Linux by following these steps.
+There is a package available for Silver in the [guru](https://github.com/gentoo/guru) repository.
+You can install Silver on Gentoo Linux by following these steps.
 
 First, install the `eselect repository` module with:
 ```
@@ -196,12 +196,12 @@ sudo emaint sync -r guru
 
 Add the package keywords to `/etc/portage/package.accept_keywords`:
 ```
-echo "gui-apps/klassy ~amd64" | sudo tee /etc/portage/package.accept_keywords/klassy
+echo "gui-apps/silver ~amd64" | sudo tee /etc/portage/package.accept_keywords/silver
 ```
 
 Finally, compile & install the package with:
 ```
-sudo emerge -av gui-apps/klassy
+sudo emerge -av gui-apps/silver
 ```
 
 &nbsp;

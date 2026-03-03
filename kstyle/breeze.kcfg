@@ -3,7 +3,7 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0 http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
 
-  <kcfgfile name="klassy/klassyrc"/>
+  <kcfgfile name="silver/silverrc"/>
 
   <!-- widget style -->
   <group name="Style">
@@ -51,7 +51,7 @@
     </entry>
 
     <!-- scrollbar -->
-    
+
     <entry name="ScrollBarSeparator" type="Bool">
       <default>false</default>
     </entry>
@@ -61,7 +61,7 @@
        <min>0</min>
        <max>20</max>
     </entry>
-    
+
     <entry name="ScrollBarAddLineButtons" type="Int">
       <default>1</default>
     </entry>
@@ -69,53 +69,53 @@
     <entry name="ScrollBarSubLineButtons" type="Int">
       <default>1</default>
     </entry>
-    
+
     <entry name="ScrollBarTopOneButtonSpacing" type = "Int">
        <default>-4</default>
        <min>-10</min>
        <max>10</max>
     </entry>
-    
+
     <entry name="ScrollBarBottomOneButtonSpacing" type = "Int">
        <default>-4</default>
        <min>-10</min>
        <max>10</max>
     </entry>
-    
+
     <entry name="ScrollBarTopTwoButtonSpacing" type = "Int">
        <default>-1</default>
        <min>-10</min>
        <max>10</max>
     </entry>
-    
+
     <entry name="ScrollBarBottomTwoButtonSpacing" type = "Int">
        <default>-1</default>
        <min>-10</min>
        <max>10</max>
     </entry>
-    
+
     <entry name="ScrollBarAutoHideArrows" type="Bool">
       <default>true</default>
     </entry>
-    
+
     <entry name="ScrollBarSliderThicknessMouseOver" type = "Int">
        <default>8</default>
        <min>1</min>
        <max>50</max>
     </entry>
-    
+
     <entry name="ScrollBarSliderThicknessMouseNotOverPercent" type = "Int">
        <default>75</default>
        <min>1</min>
        <max>100</max>
     </entry>
-    
+
     <entry name="ScrollBarSliderPadding" type = "Int">
        <default>5</default>
        <min>0</min>
        <max>20</max>
     </entry>
-    
+
     <entry name="ScrollBarMinSliderHeight" type = "Int">
        <default>36</default>
        <min>5</min>
@@ -162,7 +162,7 @@
     <entry name="TabBarDrawCenteredTabs" type="Bool">
       <default>false</default>
     </entry>
-    
+
     <!-- button gradient -->
     <entry name="ButtonGradient" type="Bool">
       <default>false</default>

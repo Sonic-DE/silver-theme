@@ -331,7 +331,7 @@
        <widget class="QCheckBox" name="applyOpacityToHeader">
         <property name="text">
          <string>Apply these opacity settings to entire Header area
-(experimental, Klassy application style required)</string>
+(experimental, Silver application style required)</string>
         </property>
        </widget>
       </item>
@@ -390,7 +390,7 @@
   <tabstop>applyOpacityToHeader</tabstop>
  </tabstops>
  <resources>
-  <include location="klassydecoration_config.qrc"/>
+  <include location="silverdecoration_config.qrc"/>
  </resources>
  <connections>
   <connection>

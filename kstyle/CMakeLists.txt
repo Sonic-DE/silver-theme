@@ -59,39 +59,39 @@ set(breeze_PART_SRCS
 #kconfig_add_kcfg_files(breeze_PART_SRCS ../kdecoration/breezesettings.kcfgc)
 kconfig_add_kcfg_files(breeze_PART_SRCS breezestyleconfigdata.kcfgc)
 
-add_library(klassy${QT_MAJOR_VERSION} MODULE ${breeze_PART_SRCS})
+add_library(silver${QT_MAJOR_VERSION} MODULE ${breeze_PART_SRCS})
 
-ecm_qt_declare_logging_category(klassy${QT_MAJOR_VERSION}
+ecm_qt_declare_logging_category(silver${QT_MAJOR_VERSION}
     HEADER
         breeze_logging.h
     IDENTIFIER
-        KLASSY
+        SILVER
     CATEGORY_NAME
-        klassy${QT_MAJOR_VERSION}
+        silver${QT_MAJOR_VERSION}
     DEFAULT_SEVERITY
         Warning
 )
 
-target_link_libraries(klassy${QT_MAJOR_VERSION}
+target_link_libraries(silver${QT_MAJOR_VERSION}
     Qt${QT_MAJOR_VERSION}::Core
     Qt${QT_MAJOR_VERSION}::Gui
     Qt${QT_MAJOR_VERSION}::Widgets
 )
 
 if(HAVE_QTDBUS)
-    target_link_libraries(klassy${QT_MAJOR_VERSION}
+    target_link_libraries(silver${QT_MAJOR_VERSION}
         Qt${QT_MAJOR_VERSION}::DBus
     )
 endif()
 
 if( BREEZE_HAVE_QTQUICK )
-    target_link_libraries(klassy${QT_MAJOR_VERSION}
+    target_link_libraries(silver${QT_MAJOR_VERSION}
         Qt${QT_MAJOR_VERSION}::Quick
         KF${QT_MAJOR_VERSION}::CoreAddons
     )
 endif()
 
-target_link_libraries(klassy${QT_MAJOR_VERSION}
+target_link_libraries(silver${QT_MAJOR_VERSION}
     KF${QT_MAJOR_VERSION}::CoreAddons
     KF${QT_MAJOR_VERSION}::ConfigCore
     KF${QT_MAJOR_VERSION}::ConfigGui
@@ -100,28 +100,28 @@ target_link_libraries(klassy${QT_MAJOR_VERSION}
     KF${QT_MAJOR_VERSION}::WindowSystem
 )
 
-target_link_libraries(klassy6 KF6::ColorScheme)
+target_link_libraries(silver6 KF6::ColorScheme)
 if (BREEZE_HAVE_QTQUICK)
-    target_link_libraries(klassy6 KF6::KirigamiPlatform)
+    target_link_libraries(silver6 KF6::KirigamiPlatform)
 endif()
 
 
-target_link_libraries(klassy${QT_MAJOR_VERSION} klassycommon${QT_MAJOR_VERSION})
+target_link_libraries(silver${QT_MAJOR_VERSION} silvercommon${QT_MAJOR_VERSION})
 
 if(KF${QT_MAJOR_VERSION}FrameworkIntegration_FOUND)
-    target_link_libraries(klassy${QT_MAJOR_VERSION} KF${QT_MAJOR_VERSION}::Style)
+    target_link_libraries(silver${QT_MAJOR_VERSION} KF${QT_MAJOR_VERSION}::Style)
 endif()
 
 if (WIN32)
     # As stated in https://docs.microsoft.com/en-us/cpp/c-runtime-library/math-constants M_PI only gets defined
     # when if _USE_MATH_DEFINES is defined
-    target_compile_definitions(klassy${QT_MAJOR_VERSION} PRIVATE _USE_MATH_DEFINES _BSD_SOURCE)
+    target_compile_definitions(silver${QT_MAJOR_VERSION} PRIVATE _USE_MATH_DEFINES _BSD_SOURCE)
 endif()
 
 
 ########### install files ###############
-install(TARGETS klassy${QT_MAJOR_VERSION} DESTINATION ${KDE_INSTALL_QTPLUGINDIR}/styles/)
-install(FILES klassy.themerc  DESTINATION  ${KDE_INSTALL_DATADIR}/kstyle/themes)
+install(TARGETS silver${QT_MAJOR_VERSION} DESTINATION ${KDE_INSTALL_QTPLUGINDIR}/styles/)
+install(FILES silver.themerc  DESTINATION  ${KDE_INSTALL_DATADIR}/kstyle/themes)
 
 ########### subdirectories ###############
 

@@ -185,7 +185,7 @@
             <enum>Qt::LayoutDirection::LeftToRight</enum>
            </property>
            <property name="styleSheet">
-            <string notr="true">border-image: url(:/images/Klassy_logo.svg);</string>
+            <string notr="true">border-image: url(:/images/Silver_logo.svg);</string>
            </property>
            <property name="interactive">
             <bool>false</bool>
@@ -216,7 +216,7 @@
            <item>
             <widget class="QLabel" name="label_24">
              <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/paulmcauley/klassy&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#2980b9;&quot;&gt;Source code&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Sonic-DE/silver-theme&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#2980b9;&quot;&gt;Source code&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
@@ -321,7 +321,7 @@
              </property>
              <item>
               <property name="text">
-               <string>Derive from Klassy window corner radius</string>
+               <string>Derive from Silver window corner radius</string>
               </property>
              </item>
              <item>

@@ -1,4 +1,4 @@
-add_definitions(-DTRANSLATION_DOMAIN="klassy_kwin_deco")
+add_definitions(-DTRANSLATION_DOMAIN="silver_kwin_deco")
 
 ################# includes #################
 include_directories(${CMAKE_BINARY_DIR}/libbreezecommon6)
@@ -13,18 +13,18 @@ set(breezedecoration_SRCS
 
 ### build library
 #This is removed as kdecoration InternalSettings is now generated from libbreezecommon
-#kconfig_add_kcfg_files(klassydecoration_STATIC breezesettings.kcfgc)
-add_library(klassydecoration MODULE
+#kconfig_add_kcfg_files(silverdecoration_STATIC breezesettings.kcfgc)
+add_library(silverdecoration MODULE
     ${breezedecoration_SRCS}
     ${breezedecoration_config_PART_FORMS_HEADERS})
 
-set_target_properties(klassydecoration PROPERTIES
-    OUTPUT_NAME org.kde.klassy
+set_target_properties(silverdecoration PROPERTIES
+    OUTPUT_NAME org.kde.silver
 )
 
-target_link_libraries(klassydecoration
+target_link_libraries(silverdecoration
     PRIVATE
-        klassycommon6
+        silvercommon6
         Qt6::DBus
         KF6::CoreAddons
         KF6::ConfigGui
@@ -35,6 +35,6 @@ target_link_libraries(klassydecoration
         KDecoration3::KDecoration
 )
 
-install(TARGETS klassydecoration DESTINATION ${KDE_INSTALL_PLUGINDIR}/${KDECORATION_PLUGIN_DIR})
+install(TARGETS silverdecoration DESTINATION ${KDE_INSTALL_PLUGINDIR}/${KDECORATION_PLUGIN_DIR})
 
 add_subdirectory(config)

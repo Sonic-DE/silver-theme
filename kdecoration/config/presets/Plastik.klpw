@@ -1,4 +1,4 @@
-[Klassy Window Decoration Preset File]
+[Silver Window Decoration Preset File]
 version=6.5.3
 
 [Windeco Preset Plastik]
@@ -65,8 +65,8 @@ FullHeightButtonWidthMarginRight=18
 IconSize=IconLargeMedium
 InactiveTitleBarOpacity=100
 IntegratedRoundedRectangleBottomPadding=2
-KlassyDarkIconThemeInherits=breeze-dark
-KlassyIconThemeInherits=breeze
+SilverDarkIconThemeInherits=breeze-dark
+SilverIconThemeInherits=breeze
 KwinBorderSize=Normal
 KwinButtonsOnLeft=MFS
 KwinButtonsOnRight=HIAX

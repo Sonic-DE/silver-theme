@@ -1,6 +1,7 @@
 /*
  * SPDX-FileCopyrightText: 2014 Hugo Pereira Da Costa <hugo.pereira@free.fr>
  * SPDX-FileCopyrightText: 2022-2026 Paul A McAuley <kde@paulmcauley.com>
+ * SPDX-FileCopyrightText: 2026 Joseph Crowell <joseph.w.crowell@gmail.com>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -22,7 +23,7 @@ SettingsProvider *SettingsProvider::s_self = nullptr;
 
 //__________________________________________________________________
 SettingsProvider::SettingsProvider()
-    : m_config(KSharedConfig::openConfig(QStringLiteral("klassy/klassyrc")))
+    : m_config(KSharedConfig::openConfig(QStringLiteral("silver/silverrc")))
     , m_presetsConfig(KSharedConfigPtr())
 {
     m_defaultSettings = InternalSettingsPtr(new InternalSettings());
@@ -98,7 +99,7 @@ InternalSettingsPtr SettingsProvider::internalSettings(Decoration *decoration)
             // load preset if set
             if (!internalSettings->exceptionPreset().isEmpty()) {
                 if (!m_presetsConfig) {
-                    KSharedConfigPtr presetsConfig = KSharedConfig::openConfig(QStringLiteral("klassy/windecopresetsrc"));
+                    KSharedConfigPtr presetsConfig = KSharedConfig::openConfig(QStringLiteral("silver/windecopresetsrc"));
                     m_presetsConfig.swap(presetsConfig);
                 }
                 if (!m_presetsConfig) {
@@ -139,11 +140,11 @@ InternalSettingsPtr SettingsProvider::internalSettings(Decoration *decoration)
 #endif
     return m_defaultSettings;
 }
-// delete this after Klassy v6.5; v6.5 spacing is standardised to be all in pixels and will make the existing configs look corrupt
+// delete this after Silver v6.5; v6.5 spacing is standardised to be all in pixels and will make the existing configs look corrupt
 void SettingsProvider::refreshConfig()
 {
-    QString klassyVersion = klassyLongVersion();
-    if (klassyVersion == "6.5" || klassyVersion == "6.5.1" || klassyVersion == "6.5.2" || klassyVersion == "6.5.3" || klassyVersion == "6.5.git") {
+    QString silverVersion = silverLongVersion();
+    if (silverVersion == "6.5" || silverVersion == "6.5.1" || silverVersion == "6.5.2" || silverVersion == "6.5.3" || silverVersion == "6.5.git") {
         QString refreshedConfig = m_defaultSettings->refreshedConfig();
         if (refreshedConfig != QStringLiteral("6.5") && refreshedConfig != QStringLiteral("6.5.1") && refreshedConfig != QStringLiteral("6.5.2")
             && refreshedConfig != QStringLiteral("6.5.3") && refreshedConfig != QStringLiteral("6.5.git")) {
@@ -153,7 +154,7 @@ void SettingsProvider::refreshConfig()
 
             // refresh the config to defaults
             m_defaultSettings->setDefaults();
-            m_defaultSettings->setRefreshedConfig(klassyVersion);
+            m_defaultSettings->setRefreshedConfig(silverVersion);
             m_defaultSettings->save();
             m_config->sync();
         }

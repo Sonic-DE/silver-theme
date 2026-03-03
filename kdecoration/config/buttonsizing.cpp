@@ -1,5 +1,6 @@
 /*
  * SPDX-FileCopyrightText: 2022-2023 Paul A McAuley <kde@paulmcauley.com>
+ * SPDX-FileCopyrightText: 2026 Joseph Crowell <joseph.w.crowell@gmail.com>
  *
  * SPDX-License-Identifier: MIT
  */
@@ -127,7 +128,7 @@ void ButtonSizing::setVisibleUiElements()
     case InternalSettings::EnumButtonShape::ShapeFullHeightRectangle:
     case InternalSettings::EnumButtonShape::ShapeFullHeightRoundedRectangle:
 
-        setWindowTitle(i18n("Button Sizing & Spacing - Klassy Settings"));
+        setWindowTitle(i18n("Button Sizing & Spacing - Silver Settings"));
         m_ui.groupBox->setTitle(i18n("Full-height Rectangle Sizing && Spacing"));
 
         m_ui.scaleBackgroundPercentLabel->setVisible(false);
@@ -174,7 +175,7 @@ void ButtonSizing::setVisibleUiElements()
 
     case InternalSettings::EnumButtonShape::ShapeIntegratedRoundedRectangle:
     case InternalSettings::EnumButtonShape::ShapeIntegratedRoundedRectangleGrouped:
-        setWindowTitle(i18n("Button Sizing & Spacing - Klassy Settings"));
+        setWindowTitle(i18n("Button Sizing & Spacing - Silver Settings"));
         m_ui.groupBox->setTitle(i18n("Integrated Rounded Rectangle Sizing && Spacing"));
 
         m_ui.scaleBackgroundPercentLabel->setVisible(false);
@@ -220,7 +221,7 @@ void ButtonSizing::setVisibleUiElements()
         break;
 
     default:
-        setWindowTitle(i18n("Button Size & Spacing - Klassy Settings"));
+        setWindowTitle(i18n("Button Size & Spacing - Silver Settings"));
         m_ui.groupBox->setTitle(i18n("Button Size && Spacing"));
 
         m_ui.scaleBackgroundPercentLabel->setVisible(true);

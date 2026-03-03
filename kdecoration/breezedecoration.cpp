@@ -3,13 +3,14 @@
  * SPDX-FileCopyrightText: 2014 Hugo Pereira Da Costa <hugo.pereira@free.fr>
  * SPDX-FileCopyrightText: 2018 Vlad Zahorodnii <vlad.zahorodnii@kde.org>
  * SPDX-FileCopyrightText: 2021-2026 Paul A McAuley <kde@paulmcauley.com>
+ * SPDX-FileCopyrightText: 2026 Joseph Crowell <joseph.w.crowell@gmail.com>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
 #include "breezedecoration.h"
 
-#if KLASSY_DECORATION_DEBUG_MODE
+#if SILVER_DECORATION_DEBUG_MODE
 #include "setqdebug_logging.h"
 #endif
 
@@ -163,8 +164,8 @@ Decoration::Decoration(QObject *parent, const QVariantList &args)
     , m_overrideOutlineFromButtonAnimation(new QVariantAnimation(this))
 
 {
-#if KLASSY_DECORATION_DEBUG_MODE
-    setDebugOutput(KLASSY_QDEBUG_OUTPUT_PATH_RELATIVE_HOME);
+#if SILVER_DECORATION_DEBUG_MODE
+    setDebugOutput(SILVER_QDEBUG_OUTPUT_PATH_RELATIVE_HOME);
 #endif
     if (!s_kdeGlobalConfig) {
         s_kdeGlobalConfig = KSharedConfig::openConfig();
@@ -329,7 +330,7 @@ void Decoration::init()
             updateShadow(false, true, true);
     });
 
-    // use DBus connection to update on Klassy configuration change
+    // use DBus connection to update on Silver configuration change
     auto dbus = QDBusConnection::sessionBus();
 
     dbus.connect(QString(),
@@ -670,7 +671,7 @@ void Decoration::updateDecorationColors(const QPalette &clientPalette, QByteArra
     // this doesn't work for a clientSpecificPalette -- need KWin to provide the  KDE ColorScheme path/hash rather than the QPalette to determine
     m_colorSchemeHasHeaderColor = KColorScheme::isColorSetSupported(s_kdeGlobalConfig, KColorScheme::Header);
 
-    // Commented was how m_toolsAreaWillBeDrawn was determined in Breeze, simplified for Klassy
+    // Commented was how m_toolsAreaWillBeDrawn was determined in Breeze, simplified for Silver
     // m_toolsAreaWillBeDrawn = ( m_colorSchemeHasHeaderColor && ( settings()->borderSize() == KDecoration3::BorderSize::None || settings()->borderSize() ==
     // KDecoration3::BorderSize::NoSides ) );
     m_toolsAreaWillBeDrawn = (m_colorSchemeHasHeaderColor || m_internalSettings->matchTitleBarToApplicationColor());
@@ -801,34 +802,34 @@ void Decoration::setGlobalLookAndFeelOptions(QString lookAndFeelPackageName)
 
         QString presetToLoad;
 
-        if (lookAndFeelPackageName == QStringLiteral("org.kde.klassykitedarkleftpanel.desktop")) {
-            if (lookAndFeelSet == QStringLiteral("org.kde.klassykitelightleftpanel.desktop")
+        if (lookAndFeelPackageName == QStringLiteral("org.kde.silverkitedarkleftpanel.desktop")) {
+            if (lookAndFeelSet == QStringLiteral("org.kde.silverkitelightleftpanel.desktop")
                 && m_internalSettings->buttonIconStyle() == InternalSettings::EnumButtonIconStyle::StyleKite) {
                 return;
             }
             presetToLoad = QStringLiteral("Kite");
-        } else if (lookAndFeelPackageName == QStringLiteral("org.kde.klassykitelightleftpanel.desktop")) {
-            if (lookAndFeelSet == QStringLiteral("org.kde.klassykitedarkleftpanel.desktop")
+        } else if (lookAndFeelPackageName == QStringLiteral("org.kde.silverkitelightleftpanel.desktop")) {
+            if (lookAndFeelSet == QStringLiteral("org.kde.silverkitedarkleftpanel.desktop")
                 && m_internalSettings->buttonIconStyle() == InternalSettings::EnumButtonIconStyle::StyleKite) {
                 return;
             }
             presetToLoad = QStringLiteral("Kite");
-        } else if (lookAndFeelPackageName == QStringLiteral("org.kde.klassykitedarkbottompanel.desktop")) {
-            if (lookAndFeelSet == QStringLiteral("org.kde.klassykitelightbottompanel.desktop")
+        } else if (lookAndFeelPackageName == QStringLiteral("org.kde.silverkitedarkbottompanel.desktop")) {
+            if (lookAndFeelSet == QStringLiteral("org.kde.silverkitelightbottompanel.desktop")
                 && m_internalSettings->buttonIconStyle() == InternalSettings::EnumButtonIconStyle::StyleSuessigKite) {
                 return;
             }
             presetToLoad = QStringLiteral("SuessigKite");
-        } else if (lookAndFeelPackageName == QStringLiteral("org.kde.klassykitelightbottompanel.desktop")) {
-            if (lookAndFeelSet == QStringLiteral("org.kde.klassykitedarkbottompanel.desktop")
+        } else if (lookAndFeelPackageName == QStringLiteral("org.kde.silverkitelightbottompanel.desktop")) {
+            if (lookAndFeelSet == QStringLiteral("org.kde.silverkitedarkbottompanel.desktop")
                 && m_internalSettings->buttonIconStyle() == InternalSettings::EnumButtonIconStyle::StyleSuessigKite) {
                 return;
             }
             presetToLoad = QStringLiteral("SuessigKite");
         }
 
-        if (!presetToLoad.isEmpty()) { // if matching look-and-feel-package, load the associated Klassy window decoration preset
-            QProcess::startDetached(QStringLiteral("klassy-settings"), {QStringLiteral("-w"), presetToLoad.toUtf8()});
+        if (!presetToLoad.isEmpty()) { // if matching look-and-feel-package, load the associated Silver window decoration preset
+            QProcess::startDetached(QStringLiteral("silver-settings"), {QStringLiteral("-w"), presetToLoad.toUtf8()});
         }
     }
 }
@@ -1714,7 +1715,7 @@ void Decoration::updateShadow(const bool forceUpdateCache, bool noCache, const b
     // if the decoration is painting, abandon setting the shadow.
     // Setting the shadow at the same time as paint() being executed causes a EGL_BAD_SURFACE error and a SEGFAULT from Plasma 5.26 onwards.
     if (m_painting) {
-        qWarning("Klassy: paint() occurring at same time as shadow creation for \"%s\" - abandoning setting shadow to prevent EGL_BAD_SURFACE.",
+        qWarning("Silver: paint() occurring at same time as shadow creation for \"%s\" - abandoning setting shadow to prevent EGL_BAD_SURFACE.",
                  c->caption().toLatin1().data());
         return;
     }

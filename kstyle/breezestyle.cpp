@@ -3,6 +3,7 @@
  * SPDX-FileCopyrightText: 2021 Noah Davis <noahadvs@gmail.com>
  * SPDX-FileCopyrightText: 2023 ivan tkachenko <me@ratijas.tk>
  * SPDX-FileCopyrightText: 2021-2025 Paul A McAuley <kde@paulmcauley.com>
+ * SPDX-FileCopyrightText: 2026 Joseph Crowell <joseph.w.crowell@gmail.com>
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
 
@@ -291,16 +292,16 @@ Style::Style()
     // use DBus connection to update on breeze configuration change
     auto dbus = QDBusConnection::sessionBus();
     dbus.connect(QString(),
-                 QStringLiteral("/KlassyStyle"),
-                 QStringLiteral("org.kde.Klassy.Style"),
+                 QStringLiteral("/SilverStyle"),
+                 QStringLiteral("org.kde.Silver.Style"),
                  QStringLiteral("reparseConfiguration"),
                  this,
                  SLOT(configurationChanged()));
 
     // not needed
     /*dbus.connect(QString(),
-                 QStringLiteral("/KlassyDecoration"),
-                 QStringLiteral("org.kde.Klassy.Style"),
+                 QStringLiteral("/SilverDecoration"),
+                 QStringLiteral("org.kde.Silver.Style"),
                  QStringLiteral("reparseConfiguration"),
                  this,
                  SLOT(configurationChanged()));
@@ -2199,7 +2200,7 @@ bool Style::eventFilterScrollBar(QScrollBar *scrollBar, QEvent *event)
                     }
                 }
 
-                scrollBar->setProperty("_klassySliderClickOffset", clickOffset);
+                scrollBar->setProperty("_silverSliderClickOffset", clickOffset);
             }
         }
 
@@ -2211,22 +2212,22 @@ bool Style::eventFilterScrollBar(QScrollBar *scrollBar, QEvent *event)
 #else
             QPoint click = mouseEvent->pos();
 #endif
-            // modified from https://github.com/qt/qtbase/blob/dev/src/widgets/widgets/qscrollbar.cpp for Klassy
+            // modified from https://github.com/qt/qtbase/blob/dev/src/widgets/widgets/qscrollbar.cpp for Silver
             int newSliderPosition = scrollBarPixelPosToRangeValue(scrollBar,
                                                                   (scrollBar->orientation() == Qt::Orientation::Horizontal ? click.x() : click.y())
-                                                                      - scrollBar->property("_klassySliderClickOffset").toInt());
+                                                                      - scrollBar->property("_silverSliderClickOffset").toInt());
             scrollBar->setSliderPosition(newSliderPosition);
             event->setAccepted(true);
             return true;
 
         } else if (event->type() == QEvent::MouseButtonRelease) {
-            scrollBar->setProperty("_klassySliderClickOffset", QVariant());
+            scrollBar->setProperty("_silverSliderClickOffset", QVariant());
         }
     }
     return false;
 }
 
-// modified from https://github.com/qt/qtbase/blob/dev/src/widgets/widgets/qscrollbar.cpp for Klassy
+// modified from https://github.com/qt/qtbase/blob/dev/src/widgets/widgets/qscrollbar.cpp for Silver
 int Style::scrollBarPixelPosToRangeValue(QScrollBar *scrollBar, int pos) const
 {
     QStyleOptionSlider opt;
@@ -8209,7 +8210,7 @@ bool Style::drawDialComplexControl(const QStyleOptionComplex *option, QPainter *
 bool Style::drawScrollBarComplexControl(const QStyleOptionComplex *option, QPainter *painter, const QWidget *widget) const
 {
     if (!option) {
-        qCWarning(KLASSY) << "Style::drawScrollBarComplexControl: Style can't draw scrollbar without options";
+        qCWarning(SILVER) << "Style::drawScrollBarComplexControl: Style can't draw scrollbar without options";
         return true;
     }
     // the animation for QStyle::SC_ScrollBarGroove is special: it will animate
@@ -8394,7 +8395,7 @@ bool Style::drawTitleBarComplexControl(const QStyleOptionComplex *option, QPaint
                 }
             } else if (mouseOver) {
                 if (active) { // Active MDI titlebar
-                    iconMode = QIcon::Disabled; // modified for Klassy to use this otherwise unused mode/state
+                    iconMode = QIcon::Disabled; // modified for Silver to use this otherwise unused mode/state
                     iconState = QIcon::On;
                 } else { // inactive MDI titlebar
                     iconMode = QIcon::Active;
@@ -8827,7 +8828,7 @@ QIcon Style::titleBarButtonIcon(StandardPixmap standardPixmap, const QStyleOptio
          decorationButtonPaletteToolbar.inactive()->backgroundPress,
          decorationButtonPaletteToolbar.inactive()->outlinePress},
 
-        // This is unused elsewhere, so use instead for Hovered on an active MDI titlebar (drawTitleBarComplexControl modified to use this in Klassy)
+        // This is unused elsewhere, so use instead for Hovered on an active MDI titlebar (drawTitleBarComplexControl modified to use this in Silver)
         {QIcon::Disabled,
          QIcon::On,
          decorationButtonPaletteMdi.active()->foregroundHover,

@@ -59,20 +59,20 @@ void ToolsAreaManager::removeWindow(const QMainWindow *window)
 
 void ToolsAreaManager::doTranslucency(QMainWindow *win, bool on)
 {
-    QVariant wasTranslucent = win->property("_klassy_was_translucent");
+    QVariant wasTranslucent = win->property("_silver_was_translucent");
 
     if (on) {
         if (wasTranslucent.isValid()) // if translucency has already been set here then don't set it again
             return;
 
-        win->setProperty("_klassy_was_translucent", win->testAttribute(Qt::WA_TranslucentBackground));
+        win->setProperty("_silver_was_translucent", win->testAttribute(Qt::WA_TranslucentBackground));
         win->setAttribute(Qt::WA_TranslucentBackground, true);
     } else {
         if (!wasTranslucent.isValid()) // do not turn off translucency if it was initially set by a third party
             return;
 
         win->setAttribute(Qt::WA_TranslucentBackground, wasTranslucent.toBool()); // set the translucency back to its initial value if altered here
-        win->setProperty("_klassy_was_translucent", QVariant());
+        win->setProperty("_silver_was_translucent", QVariant());
     }
 }
 
@@ -154,7 +154,7 @@ void ToolsAreaManager::configUpdated()
         _palette.setBrush(QPalette::Inactive, QPalette::WindowText, inactive.foreground());
     }
 
-    // add opacity from decoration, if in Header or added in Klassy settings
+    // add opacity from decoration, if in Header or added in Silver settings
     if (_colorSchemeHasHeaderColor || _helper->decorationConfig()->matchTitleBarToApplicationColor()) {
         if (_helper->decorationConfig()->applyOpacityToHeader() && !_helper->decorationConfig()->preventApplyOpacityToHeader()) {
             // override active with colour with opacity from decoration if needed

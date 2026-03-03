@@ -1,0 +1,26 @@
+{
+    "KPackageStructure": "Plasma/LayoutTemplate",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "joseph.w.crowell@gmail.com",
+                "Name": "Joseph Crowell"
+            }
+        ],
+        "Category": "",
+        "Description": "Silver bottom panel featuring application launcher, task manager and system tray",
+        "EnabledByDefault": true,
+        "Id": "org.kde.silver.plasma.desktop.bottomPanel",
+        "License": "LGPLv2+",
+        "Name": "Silver Bottom Panel",
+        "Name[fr]": "Panneau inférieur Silver",
+        "ServiceTypes": [
+            "Plasma/LayoutTemplate"
+        ],
+        "Website": "https://github.com/Sonic-DE/silver-theme"
+    },
+    "X-Plasma-ContainmentCategories": [
+        "panel"
+    ],
+    "X-Plasma-Shell": "plasmashell"
+}

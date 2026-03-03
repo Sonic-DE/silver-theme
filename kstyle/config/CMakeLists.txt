@@ -1,6 +1,6 @@
 ### configuration plugin
-add_definitions(-DTRANSLATION_DOMAIN=\"klassy_style_config\")
-set(kstyle_breeze_config_PART_SRCS breezestyleconfig.cpp ui/klassystyleconfig.qrc)
+add_definitions(-DTRANSLATION_DOMAIN=\"silver_style_config\")
+set(kstyle_breeze_config_PART_SRCS breezestyleconfig.cpp ui/silverstyleconfig.qrc)
 
 set(kstyle_breeze_config_PART_SRCS ${kstyle_breeze_config_PART_SRCS} breezestyleconfigmodule.cpp )
 
@@ -10,13 +10,13 @@ ki18n_wrap_ui(kstyle_breeze_config_PART_FORMS_HEADERS ${kstyle_breeze_config_PAR
 
 set(CMAKE_AUTORCC ON)
 
-kcoreaddons_add_plugin(klassystyleconfig SOURCES
+kcoreaddons_add_plugin(silverstyleconfig SOURCES
     ${kstyle_breeze_config_PART_SRCS}
     ${kstyle_breeze_config_PART_FORMS_HEADERS}
     INSTALL_NAMESPACE "kstyle_config"
 )
 
-target_link_libraries(klassystyleconfig
+target_link_libraries(silverstyleconfig
     PUBLIC
         Qt6::Core
         Qt6::Gui
@@ -24,13 +24,13 @@ target_link_libraries(klassystyleconfig
 )
 
 if(HAVE_QTDBUS)
-    target_link_libraries(klassystyleconfig
+    target_link_libraries(silverstyleconfig
         PUBLIC
             Qt6::DBus
     )
 endif()
 
-target_link_libraries(klassystyleconfig
+target_link_libraries(silverstyleconfig
     PUBLIC
         KF6::CoreAddons
         KF6::ConfigCore
@@ -38,33 +38,33 @@ target_link_libraries(klassystyleconfig
         KF6::I18n
 )
 if(QT_MAJOR_VERSION STREQUAL "6")
-    target_link_libraries(klassystyleconfig
+    target_link_libraries(silverstyleconfig
         PUBLIC
         KF6::KCMUtils
     )
 endif()
-kcmutils_generate_desktop_file(klassystyleconfig)
+kcmutils_generate_desktop_file(silverstyleconfig)
 
 include_directories(${CMAKE_SOURCE_DIR}/libbreezecommon)
 include_directories(${CMAKE_BINARY_DIR}/libbreezecommon6)
 
 
-set(klassy_settings_SOURCES
+set(silver_settings_SOURCES
     main.cpp
     systemicongenerator.cpp
-    klassy-settings.qrc
+    silver-settings.qrc
 )
-add_executable(klassy-settings ${klassy_settings_SOURCES} )
-target_link_libraries(klassy-settings Qt6::Core Qt6::Gui Qt6::Widgets Qt6::Svg Qt6::Xml)
-target_link_libraries(klassy-settings KF6::I18n KF6::KCMUtils KF6::CoreAddons)
-target_link_libraries(klassy-settings klassycommon6)
+add_executable(silver-settings ${silver_settings_SOURCES} )
+target_link_libraries(silver-settings Qt6::Core Qt6::Gui Qt6::Widgets Qt6::Svg Qt6::Xml)
+target_link_libraries(silver-settings KF6::I18n KF6::KCMUtils KF6::CoreAddons)
+target_link_libraries(silver-settings silvercommon6)
 
-install(TARGETS klassy-settings ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS silver-settings ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 # icon
-ecm_install_icons(ICONS sc-apps-klassy-settings.svgz
+ecm_install_icons(ICONS sc-apps-silver-settings.svgz
     DESTINATION ${KDE_INSTALL_ICONDIR}
     THEME hicolor )
 
 # .desktop file
-install(FILES klassy-settings.desktop DESTINATION ${KDE_INSTALL_APPDIR})
+install(FILES silver-settings.desktop DESTINATION ${KDE_INSTALL_APPDIR})

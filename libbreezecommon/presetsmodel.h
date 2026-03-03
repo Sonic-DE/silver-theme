@@ -1,5 +1,6 @@
 /*
  * SPDX-FileCopyrightText: 2023-2024 Paul A McAuley <kde@paulmcauley.com>
+ * SPDX-FileCopyrightText: 2026 Joseph Crowell <joseph.w.crowell@gmail.com>
  *
  * SPDX-License-Identifier: MIT
  */
@@ -21,7 +22,7 @@ enum struct BREEZECOMMON_EXPORT PresetsErrorFlag {
 };
 
 /**
- * @brief Functions to read and write Presets from/to config file within Klassy
+ * @brief Functions to read and write Presets from/to config file within Silver
  */
 class BREEZECOMMON_EXPORT PresetsModel
 {

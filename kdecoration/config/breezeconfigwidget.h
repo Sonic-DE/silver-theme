@@ -4,6 +4,7 @@
 //
 // SPDX-FileCopyrightText: 2009 Hugo Pereira Da Costa <hugo.pereira@free.fr>
 // SPDX-FileCopyrightText: 2021-2024 Paul A McAuley <kde@paulmcauley.com>
+// SPDX-FileCopyrightText: 2026 Joseph Crowell <joseph.w.crowell @gmail.com>
 //
 // SPDX-License-Identifier: MIT
 //////////////////////////////////////////////////////////////////////////////
@@ -35,8 +36,8 @@
 
 // needed to display images when qrc is statically linked
 // must be in global namespace to work
-void initKlassydecorationConfigQrc();
-void cleanupKlassydecorationConfigQrc();
+void initSilverdecorationConfigQrc();
+void cleanupSilverdecorationConfigQrc();
 
 namespace Breeze
 {

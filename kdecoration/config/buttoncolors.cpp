@@ -1,5 +1,6 @@
 /*
  * SPDX-FileCopyrightText: 2023-2026 Paul A McAuley <kde@paulmcauley.com>
+ * SPDX-FileCopyrightText: 2026 Joseph Crowell <joseph.w.crowell@gmail.com>
  *
  * SPDX-License-Identifier: MIT
  */
@@ -689,7 +690,7 @@ void ButtonColors::save(const bool reloadKwinConfig)
         DBusMessages::updateDecorationColorCache();
         DBusMessages::kwinReloadConfig();
         // DBusMessages::kstyleReloadDecorationConfig(); //should reload anyway
-        // auto-generate the klassy and klassy-dark system icons
+        // auto-generate the silver and silver-dark system icons
 
         static_cast<ConfigWidget *>(m_parent)->generateSystemIcons();
     }

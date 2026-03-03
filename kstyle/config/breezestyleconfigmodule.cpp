@@ -8,7 +8,7 @@
 
 #include <KPluginFactory>
 
-K_PLUGIN_CLASS_WITH_JSON(Breeze::ConfigurationModule, "klassystyleconfig.json")
+K_PLUGIN_CLASS_WITH_JSON(Breeze::ConfigurationModule, "silverstyleconfig.json")
 
 #include "breezestyleconfigmodule.moc"
 

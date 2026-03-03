@@ -1,6 +1,7 @@
 /*
  * SPDX-FileCopyrightText: 2014 Hugo Pereira Da Costa <hugo.pereira@free.fr>
  * SPDX-FileCopyrightText: 2021-2025 Paul A McAuley <kde@paulmcauley.com>
+ * SPDX-FileCopyrightText: 2026 Joseph Crowell <joseph.w.crowell@gmail.com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
@@ -32,19 +33,19 @@ namespace Breeze
 //__________________________________________________________________
 StyleConfig::StyleConfig(QWidget *parent)
     : QWidget(parent)
-    , _configuration(KSharedConfig::openConfig(QStringLiteral("klassy/klassyrc")))
+    , _configuration(KSharedConfig::openConfig(QStringLiteral("silver/silverrc")))
 {
     // this is a hack to get an Apply button
     QDialog *parentDialog = qobject_cast<QDialog *>(parent);
     if (parentDialog && QCoreApplication::applicationName() == QStringLiteral("systemsettings")) {
         parentDialog->close();
-        system("kcmshell6 kstyle_config/klassystyleconfig &");
+        system("kcmshell6 kstyle_config/silverstyleconfig &");
     }
 
     setupUi(this);
 
-    // hide the title if not klassy-settings
-    if (this->window() && qAppName() != QStringLiteral("klassy-settings")) {
+    // hide the title if not silver-settings
+    if (this->window() && qAppName() != QStringLiteral("silver-settings")) {
         KPageWidget *kPageWidget = this->window()->findChild<KPageWidget *>();
         if (kPageWidget) {
             KPageWidgetItem *currentPage = kPageWidget->currentPage();
@@ -54,12 +55,12 @@ StyleConfig::StyleConfig(QWidget *parent)
         }
     }
 
-#if KLASSY_GIT_MASTER
+#if SILVER_GIT_MASTER
     // set the long version string if from the git master
-    _version->setText(QStringLiteral("v") + QStringLiteral(KLASSY_VERSION) + QStringLiteral(".git"));
+    _version->setText(QStringLiteral("v") + QStringLiteral(SILVER_VERSION) + QStringLiteral(".git"));
 
 #else
-    _version->setText(QStringLiteral("v") + QStringLiteral(KLASSY_VERSION));
+    _version->setText(QStringLiteral("v") + QStringLiteral(SILVER_VERSION));
 #endif
 
     // add corner icon

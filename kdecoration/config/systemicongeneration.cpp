@@ -1,5 +1,6 @@
 /*
  * SPDX-FileCopyrightText: 2024 Paul A McAuley <kde@paulmcauley.com>
+ * SPDX-FileCopyrightText: 2026 Joseph Crowell <joseph.w.crowell@gmail.com>
  *
  * SPDX-License-Identifier: MIT
  */
@@ -23,11 +24,11 @@ SystemIconGeneration::SystemIconGeneration(KSharedConfig::Ptr config, KSharedCon
     , m_parent(parent)
 {
     m_ui->setupUi(this);
-    this->setWindowTitle(i18n("System Icon Generation - Klassy Settings"));
+    this->setWindowTitle(i18n("System Icon Generation - Silver Settings"));
     populateComboBoxesWithSystemIconThemes();
 
-    connect(m_ui->klassyIconThemeInherits, &QComboBox::currentTextChanged, this, &SystemIconGeneration::updateChanged, Qt::ConnectionType::DirectConnection);
-    connect(m_ui->klassyDarkIconThemeInherits,
+    connect(m_ui->silverIconThemeInherits, &QComboBox::currentTextChanged, this, &SystemIconGeneration::updateChanged, Qt::ConnectionType::DirectConnection);
+    connect(m_ui->silverDarkIconThemeInherits,
             &QComboBox::currentTextChanged,
             this,
             &SystemIconGeneration::updateChanged,
@@ -52,8 +53,8 @@ void SystemIconGeneration::load()
     m_internalSettings = InternalSettingsPtr(new InternalSettings());
     m_internalSettings->load();
 
-    m_ui->klassyIconThemeInherits->setCurrentText(m_internalSettings->klassyIconThemeInherits());
-    m_ui->klassyDarkIconThemeInherits->setCurrentText(m_internalSettings->klassyDarkIconThemeInherits());
+    m_ui->silverIconThemeInherits->setCurrentText(m_internalSettings->silverIconThemeInherits());
+    m_ui->silverDarkIconThemeInherits->setCurrentText(m_internalSettings->silverDarkIconThemeInherits());
 
     setChanged(false);
 
@@ -64,12 +65,12 @@ void SystemIconGeneration::load()
 void SystemIconGeneration::populateComboBoxesWithSystemIconThemes()
 {
     QStringList iconThemes = KIconTheme::list();
-    iconThemes.removeAll(QStringLiteral("klassy"));
-    iconThemes.removeAll(QStringLiteral("klassy-dark"));
+    iconThemes.removeAll(QStringLiteral("silver"));
+    iconThemes.removeAll(QStringLiteral("silver-dark"));
     iconThemes.sort(Qt::CaseSensitivity::CaseInsensitive);
 
-    m_ui->klassyIconThemeInherits->addItems(iconThemes);
-    m_ui->klassyDarkIconThemeInherits->addItems(iconThemes);
+    m_ui->silverIconThemeInherits->addItems(iconThemes);
+    m_ui->silverDarkIconThemeInherits->addItems(iconThemes);
 }
 
 void SystemIconGeneration::save(const bool reloadKwinConfig)
@@ -78,8 +79,8 @@ void SystemIconGeneration::save(const bool reloadKwinConfig)
     m_internalSettings = InternalSettingsPtr(new InternalSettings());
     m_internalSettings->load();
 
-    m_internalSettings->setKlassyIconThemeInherits(m_ui->klassyIconThemeInherits->currentText());
-    m_internalSettings->setKlassyDarkIconThemeInherits(m_ui->klassyDarkIconThemeInherits->currentText());
+    m_internalSettings->setSilverIconThemeInherits(m_ui->silverIconThemeInherits->currentText());
+    m_internalSettings->setSilverDarkIconThemeInherits(m_ui->silverDarkIconThemeInherits->currentText());
 
     m_internalSettings->save();
     setChanged(false);
@@ -97,8 +98,8 @@ void SystemIconGeneration::defaults()
     m_internalSettings->setDefaults();
 
     populateComboBoxesWithSystemIconThemes();
-    m_ui->klassyIconThemeInherits->setCurrentText(m_internalSettings->klassyIconThemeInherits());
-    m_ui->klassyDarkIconThemeInherits->setCurrentText(m_internalSettings->klassyDarkIconThemeInherits());
+    m_ui->silverIconThemeInherits->setCurrentText(m_internalSettings->silverIconThemeInherits());
+    m_ui->silverDarkIconThemeInherits->setCurrentText(m_internalSettings->silverDarkIconThemeInherits());
 
     setChanged(!isDefaults());
 
@@ -151,9 +152,9 @@ void SystemIconGeneration::updateChanged()
     // track modifications
     bool modified(false);
 
-    if (m_ui->klassyIconThemeInherits->currentText() != m_internalSettings->klassyIconThemeInherits())
+    if (m_ui->silverIconThemeInherits->currentText() != m_internalSettings->silverIconThemeInherits())
         modified = true;
-    else if (m_ui->klassyDarkIconThemeInherits->currentText() != m_internalSettings->klassyDarkIconThemeInherits())
+    else if (m_ui->silverDarkIconThemeInherits->currentText() != m_internalSettings->silverDarkIconThemeInherits())
         modified = true;
 
     setChanged(modified);

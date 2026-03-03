@@ -1,0 +1,26 @@
+{
+    "KPackageStructure": "Plasma/LayoutTemplate",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "joseph.w.crowell@gmail.com",
+                "Name": "Joseph Crowell"
+            }
+        ],
+        "Category": "",
+        "Description": "Silver left panel featuring application launcher, task manager and system tray",
+        "EnabledByDefault": true,
+        "Id": "org.kde.silver.plasma.desktop.leftPanel",
+        "License": "LGPLv2+",
+        "Name": "Silver Left Panel",
+        "Name[fr]": "Panneau gauche Silver",
+        "ServiceTypes": [
+            "Plasma/LayoutTemplate"
+        ],
+        "Website": "https://github.com/Sonic-DE/silver-theme"
+    },
+    "X-Plasma-ContainmentCategories": [
+        "panel"
+    ],
+    "X-Plasma-Shell": "plasmashell"
+}

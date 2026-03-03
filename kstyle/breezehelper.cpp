@@ -1,13 +1,14 @@
 /*
  * SPDX-FileCopyrightText: 2014 Hugo Pereira Da Costa <hugo.pereira@free.fr>
  * SPDX-FileCopyrightText: 2021-2025 Paul A McAuley <kde@paulmcauley.com>
+ * SPDX-FileCopyrightText: 2026 Joseph Crowell <joseph.w.crowell@gmail.com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
 
 #include "breezehelper.h"
 
-#if KLASSY_STYLE_DEBUG_MODE
+#if SILVER_STYLE_DEBUG_MODE
 #include "setqdebug_logging.h"
 #endif
 
@@ -57,8 +58,8 @@ Helper::Helper(KSharedConfig::Ptr config)
     , _kwinConfig(KSharedConfig::openConfig(QStringLiteral("kwinrc")))
     , _decorationConfig(DecorationSettingsProvider::self()->internalSettings())
 {
-#if KLASSY_STYLE_DEBUG_MODE
-    setDebugOutput(KLASSY_QDEBUG_OUTPUT_PATH_RELATIVE_HOME);
+#if SILVER_STYLE_DEBUG_MODE
+    setDebugOutput(SILVER_QDEBUG_OUTPUT_PATH_RELATIVE_HOME);
 #endif
 }
 
@@ -1243,7 +1244,7 @@ void Helper::initSliderStyleOption(const QSlider *slider, QStyleOptionSlider *op
     // Can't fetch activeSubControls, because it's private API
 }
 
-// modified from https://github.com/qt/qtbase/blob/dev/src/widgets/widgets/qscrollbar.cpp for Klassy
+// modified from https://github.com/qt/qtbase/blob/dev/src/widgets/widgets/qscrollbar.cpp for Silver
 void Helper::initScrollBarStyleOption(const QScrollBar *scrollBar, QStyleOptionSlider *option) const
 {
     option->initFrom(scrollBar);
@@ -1893,7 +1894,7 @@ bool Helper::shouldDrawToolsArea(const QWidget *widget) const
         return false;
     }
 
-    // commented out was the Breeze logic. For Klassy as we can set the borders to titlebar colour to avoid any such visual glitches
+    // commented out was the Breeze logic. For Silver as we can set the borders to titlebar colour to avoid any such visual glitches
     /*
     static bool isAuto = false;
     static QString borderSize;

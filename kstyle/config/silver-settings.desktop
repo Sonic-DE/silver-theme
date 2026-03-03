@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Type=Application
+Terminal=false
+Exec=silver-settings %f
+TryExec=silver-settings
+Name=Silver Settings
+Name[fr]=Paramètres Silver
+Icon=silver-settings
+Categories=Settings

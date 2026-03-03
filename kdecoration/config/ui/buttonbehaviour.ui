@@ -735,7 +735,7 @@
   <tabstop>closeButtonBehaviourTableInactive</tabstop>
  </tabstops>
  <resources>
-  <include location="klassydecoration_config.qrc"/>
+  <include location="silverdecoration_config.qrc"/>
  </resources>
  <connections>
   <connection>

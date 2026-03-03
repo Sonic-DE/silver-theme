@@ -5,6 +5,7 @@
 //
 // SPDX-FileCopyrightText: 2009 Hugo Pereira Da Costa <hugo.pereira@free.fr>
 // SPDX-FileCopyrightText: 2022-2023 Paul A McAuley <kde@paulmcauley.com>
+// SPDX-FileCopyrightText: 2026 Joseph Crowell <joseph.w.crowell@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 //////////////////////////////////////////////////////////////////////////////
@@ -20,7 +21,7 @@ void DecorationExceptionList::readConfig(KSharedConfig::Ptr config, const bool r
     _exceptions.clear();
     _defaultExceptions.clear();
 
-    // set the default exceptions that are bundled with Klassy
+    // set the default exceptions that are bundled with Silver
     InternalSettingsPtr defaultException0(new InternalSettings());
     defaultException0->setExceptionWindowPropertyType(InternalSettings::EnumExceptionWindowPropertyType::ExceptionWindowClassName);
     defaultException0->setExceptionWindowPropertyPattern(QStringLiteral(""));

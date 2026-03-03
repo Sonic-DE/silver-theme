@@ -7,15 +7,15 @@
             }
         ],
         "Category": "",
-        "Description": "Kite Dark - part of Klassy by Paul A McAuley",
-        "Description[fr]": "Kite sombre - composant Klassy par Paul A McAuley",
+        "Description": "Kite Dark - part of Silver by Paul A McAuley",
+        "Description[fr]": "Kite sombre - composant Silver par Paul A McAuley",
         "EnabledByDefault": true,
         "Id": "kite-dark",
         "License": "LGPL",
-        "Name": "Kite Dark (Klassy)",
-        "Name[fr]": "Kite sombre (Klassy)",
+        "Name": "Kite Dark (Silver)",
+        "Name[fr]": "Kite sombre (Silver)",
         "Version": "6.5",
-        "Website": "https://github.com/paulmcauley/klassy"
+        "Website": "https://github.com/Sonic-DE/silver-theme"
     },
     "X-Plasma-API": "5.0"
 }

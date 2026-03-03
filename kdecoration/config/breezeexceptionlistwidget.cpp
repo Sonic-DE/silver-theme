@@ -4,6 +4,7 @@
 //
 // SPDX-FileCopyrightText: 2009 Hugo Pereira Da Costa <hugo.pereira@free.fr>
 // SPDX-FileCopyrightText: 2022-2023 Paul A McAuley <kde@paulmcauley.com>
+// SPDX-FileCopyrightText: 2026 Joseph Crowell <joseph.w.crowell @gmail.com>
 //
 // SPDX-License-Identifier: MIT
 //////////////////////////////////////////////////////////////////////////////
@@ -87,7 +88,7 @@ void ExceptionListWidget::updateButtons()
 void ExceptionListWidget::add()
 {
     QPointer<ExceptionDialog> dialog = new ExceptionDialog(m_configuration, m_presetsConfiguration, this);
-    dialog->setWindowTitle(i18n("New Exception - Klassy Settings"));
+    dialog->setWindowTitle(i18n("New Exception - Silver Settings"));
     InternalSettingsPtr exception(new InternalSettings());
 
     exception->load();
@@ -135,7 +136,7 @@ void ExceptionListWidget::edit()
 
     // create dialog
     QPointer<ExceptionDialog> dialog(new ExceptionDialog(m_configuration, m_presetsConfiguration, this));
-    dialog->setWindowTitle(i18n("Edit Exception - Klassy Settings"));
+    dialog->setWindowTitle(i18n("Edit Exception - Silver Settings"));
     dialog->setException(exception);
 
     // map dialog
@@ -166,7 +167,7 @@ void ExceptionListWidget::remove()
     // confirmation dialog
     {
         QMessageBox messageBox(QMessageBox::Question,
-                               i18n("Question - Klassy Settings"),
+                               i18n("Question - Silver Settings"),
                                i18n("Remove selected exception?"),
                                QMessageBox::Yes | QMessageBox::Cancel);
         messageBox.button(QMessageBox::Yes)->setText(i18n("Remove"));
@@ -303,9 +304,9 @@ bool ExceptionListWidget::checkException(InternalSettingsPtr exception)
            || !QRegularExpression(exception->exceptionProgramNamePattern()).isValid()
            || !QRegularExpression(exception->exceptionWindowPropertyPattern()).isValid()) {
         if (exception->preventApplyOpacityToHeader() && exception->exceptionProgramNamePattern().isEmpty()) {
-            QMessageBox::warning(this, i18n("Warning - Klassy Settings"), i18n("Please provide an application name to match"));
+            QMessageBox::warning(this, i18n("Warning - Silver Settings"), i18n("Please provide an application name to match"));
         } else
-            QMessageBox::warning(this, i18n("Warning - Klassy Settings"), i18n("Regular Expression syntax is incorrect"));
+            QMessageBox::warning(this, i18n("Warning - Silver Settings"), i18n("Regular Expression syntax is incorrect"));
         QPointer<ExceptionDialog> dialog(new ExceptionDialog(m_configuration, m_presetsConfiguration, this));
         dialog->setException(exception);
         if (dialog->exec() == QDialog::Rejected) {
