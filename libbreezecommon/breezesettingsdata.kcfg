@@ -19,8 +19,8 @@
         <entry name="ButtonIconStyle" type="Enum">
             <choices>
                 <choice name="StyleSystemIconTheme" />
-                <choice name="StyleKite" />
-                <choice name="StyleSuessigKite" />
+                <choice name="StyleSilver" />
+                <choice name="StyleSuessigSilver" />
                 <choice name="StyleOxygen" />
                 <choice name="StyleKlasse" />
                 <choice name="StyleTraditional" />
@@ -31,7 +31,7 @@
                 <choice name="StyleArkopalLeft" />
                 <choice name="StyleKisweet" />
             </choices>
-            <default>StyleKite</default>
+            <default>StyleSilver</default>
         </entry>
 
         <!-- button size -->

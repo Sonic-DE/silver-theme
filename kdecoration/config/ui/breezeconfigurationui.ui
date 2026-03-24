@@ -561,16 +561,16 @@
              </item>
              <item>
               <property name="text">
-               <string>  Kite</string>
+               <string>  Silver</string>
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>:/silver_config_icons/Kite.png</normaloff>:/silver_config_icons/Kite.png</iconset>
+                <normaloff>:/silver_config_icons/Silver.png</normaloff>:/silver_config_icons/Silver.png</iconset>
               </property>
              </item>
              <item>
               <property name="text">
-               <string>  SuessigKite</string>
+               <string>  SuessigSilver</string>
               </property>
              </item>
              <item>

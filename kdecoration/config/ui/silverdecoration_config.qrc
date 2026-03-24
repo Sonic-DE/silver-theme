@@ -1,6 +1,5 @@
 <!DOCTYPE RCC><RCC version="1.0">
 <qresource>
-    <file>silver_config_icons/Kite_logo.svg</file>
     <file>silver_config_icons/Silver_logo.svg</file>
     <file>silver_config_icons/object-locked-symbolic.svg</file>
     <file>silver_config_icons/object-unlocked-symbolic.svg</file>

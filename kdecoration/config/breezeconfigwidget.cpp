@@ -542,14 +542,8 @@ void ConfigWidget::onIconsChanged()
         m_ui.iconOptionsStackedWidget->setCurrentIndex(0);
     }
 
-    if (m_ui.buttonIconStyle->currentIndex() == InternalSettings::EnumButtonIconStyle::StyleKite
-        || m_ui.buttonIconStyle->currentIndex() == InternalSettings::EnumButtonIconStyle::StyleSuessigKite) {
-        m_ui.silver_logo->setStyleSheet("border-image: url(:/silver_config_icons/Kite_logo.svg);");
-        m_ui.silver_logo->setMaximumSize(116, 64);
-    } else {
-        m_ui.silver_logo->setStyleSheet("border-image: url(:/silver_config_icons/Silver_logo.svg);");
-        m_ui.silver_logo->setMaximumSize(156, 64);
-    }
+    m_ui.silver_logo->setStyleSheet("border-image: url(:/silver_config_icons/Silver_logo.svg);");
+    m_ui.silver_logo->setMaximumSize(156, 64);
 }
 
 void ConfigWidget::dialogChanged(bool changed)

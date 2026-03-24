@@ -800,30 +800,30 @@ void Decoration::setGlobalLookAndFeelOptions(QString lookAndFeelPackageName)
 
         QString presetToLoad;
 
-        if (lookAndFeelPackageName == QStringLiteral("org.kde.silverkitedarkleftpanel.desktop")) {
-            if (lookAndFeelSet == QStringLiteral("org.kde.silverkitelightleftpanel.desktop")
-                && m_internalSettings->buttonIconStyle() == InternalSettings::EnumButtonIconStyle::StyleKite) {
+        if (lookAndFeelPackageName == QStringLiteral("org.kde.silverdarkleftpanel.desktop")) {
+            if (lookAndFeelSet == QStringLiteral("org.kde.silverlightleftpanel.desktop")
+                && m_internalSettings->buttonIconStyle() == InternalSettings::EnumButtonIconStyle::StyleSilver) {
                 return;
             }
-            presetToLoad = QStringLiteral("Kite");
-        } else if (lookAndFeelPackageName == QStringLiteral("org.kde.silverkitelightleftpanel.desktop")) {
-            if (lookAndFeelSet == QStringLiteral("org.kde.silverkitedarkleftpanel.desktop")
-                && m_internalSettings->buttonIconStyle() == InternalSettings::EnumButtonIconStyle::StyleKite) {
+            presetToLoad = QStringLiteral("Silver");
+        } else if (lookAndFeelPackageName == QStringLiteral("org.kde.silverlightleftpanel.desktop")) {
+            if (lookAndFeelSet == QStringLiteral("org.kde.silverdarkleftpanel.desktop")
+                && m_internalSettings->buttonIconStyle() == InternalSettings::EnumButtonIconStyle::StyleSilver) {
                 return;
             }
-            presetToLoad = QStringLiteral("Kite");
-        } else if (lookAndFeelPackageName == QStringLiteral("org.kde.silverkitedarkbottompanel.desktop")) {
-            if (lookAndFeelSet == QStringLiteral("org.kde.silverkitelightbottompanel.desktop")
-                && m_internalSettings->buttonIconStyle() == InternalSettings::EnumButtonIconStyle::StyleSuessigKite) {
+            presetToLoad = QStringLiteral("Silver");
+        } else if (lookAndFeelPackageName == QStringLiteral("org.kde.silverdarkbottompanel.desktop")) {
+            if (lookAndFeelSet == QStringLiteral("org.kde.silverlightbottompanel.desktop")
+                && m_internalSettings->buttonIconStyle() == InternalSettings::EnumButtonIconStyle::StyleSuessigSilver) {
                 return;
             }
-            presetToLoad = QStringLiteral("SuessigKite");
-        } else if (lookAndFeelPackageName == QStringLiteral("org.kde.silverkitelightbottompanel.desktop")) {
-            if (lookAndFeelSet == QStringLiteral("org.kde.silverkitedarkbottompanel.desktop")
-                && m_internalSettings->buttonIconStyle() == InternalSettings::EnumButtonIconStyle::StyleSuessigKite) {
+            presetToLoad = QStringLiteral("SuessigSilver");
+        } else if (lookAndFeelPackageName == QStringLiteral("org.kde.silverlightbottompanel.desktop")) {
+            if (lookAndFeelSet == QStringLiteral("org.kde.silverdarkbottompanel.desktop")
+                && m_internalSettings->buttonIconStyle() == InternalSettings::EnumButtonIconStyle::StyleSuessigSilver) {
                 return;
             }
-            presetToLoad = QStringLiteral("SuessigKite");
+            presetToLoad = QStringLiteral("SuessigSilver");
         }
 
         if (!presetToLoad.isEmpty()) { // if matching look-and-feel-package, load the associated Silver window decoration preset

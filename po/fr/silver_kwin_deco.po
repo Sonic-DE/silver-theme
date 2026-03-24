@@ -990,13 +990,13 @@ msgstr "Utiliser icônes système"
 #. i18n: ectx: property (text), item, widget (QComboBox, buttonIconStyle)
 #: config/ui/breezeconfigurationui.ui:564
 #, kde-format
-msgid "  Kite"
+msgid "  Silver"
 msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, buttonIconStyle)
 #: config/ui/breezeconfigurationui.ui:573
 #, kde-format
-msgid "  SuessigKite"
+msgid "  SuessigSilver"
 msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, buttonIconStyle)
