@@ -1,31 +1,14 @@
 # Silver
 
-<img align="right" src="screenshots/highlight_gifs/kite_demo.gif?raw=true" alt="kite window decoration" />
-
-##### Table of Contents
-
-[Overview](#overview)
->[Main _Silver_ Global theme](#kite)
->[Customizability](#customizability)
-
-[Installation](#installation)
->[Pre-built packages](#prebuilt)
->[Compile from source](#compile)
->[Gentoo Linux package](#gentoo-linux-package)
-
-[Donations](#donations)
-
-&nbsp;
-
 <a name="overview"/>
 
 ## Overview
 
 _Silver_ is a fork of _Klassy_ which is a theming utility for the KDE Desktop Environment. This one is modified specifically to use new features specific to SonicDE. It consists of a Global Theme which applies several components: Window Decoration, Application Style, Colour Scheme, Desktop style, and Icons. The Silver Application Style has arguably the best scrollbars on any platform.
 
-<a name="kite"/>
+<a name="silver"/>
 
-### Main _Kite_ global theme
+### Main _Silver_ global theme
 
 After [installing](#installation), it is recommended to first try the main Global Theme, called _Silver_.
 
@@ -53,13 +36,9 @@ It is recommended to first try the bundled Presets in Silver Settings before any
 * Provides numerous built-in perfectly-pixel-snapped button icons, as well as the ability to display `window-*-symbolic` system icons:
   ![Screenshot of Button icons menu](screenshots/button_icon_menu.png?raw=true "Screenshot of Button icons menu")
 
->(Above Preset: _Glassy Silver_)
-
 * Provides an Application Style aso that icons in dockable panels, MDI applications and application tabs are consistent (make sure to enable the _Silver_ Application Style):
 
   <img src="screenshots/mdi_test.png" alt="Example of MDI window and dockable panels" width="512">
-
->(Above Preset: _Chroma_)
 
 * Provides an Icon theme so that context menus and GTK applications consistently match the main titlebar icons (make sure to enable the _Silver_ system icon theme and configure the icons by clicking "System Icon Generation..." in _Silver Settings_):
 
@@ -189,7 +168,9 @@ Uninstall build script:
 ```
 
 &nbsp;
+
 ### Gentoo Linux package
+
 There is a package available for Silver in the [guru](https://github.com/gentoo/guru) repository.
 You can install Silver on Gentoo Linux by following these steps.
 
