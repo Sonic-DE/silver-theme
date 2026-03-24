@@ -1762,15 +1762,13 @@ void Helper::renderEllipseShadow(QPainter *painter, const QRectF &rect, const QC
 //______________________________________________________________________________
 bool Helper::isX11()
 {
-    static const bool s_isX11 = KWindowSystem::isPlatformX11();
-    return s_isX11;
+    return true;
 }
 
 //______________________________________________________________________________
 bool Helper::isWayland()
 {
-    static const bool s_isWayland = KWindowSystem::isPlatformWayland();
-    return s_isWayland;
+    return false;
 }
 
 //______________________________________________________________________________

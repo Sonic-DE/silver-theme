@@ -605,14 +605,12 @@ void Decoration::reconfigureMain(const bool noUpdateShadow)
     m_x11Scale = 1.0;
     m_smallSpacing = 2.0;
     m_gridUnit = 10.0;
-    if (KWindowSystem::isPlatformX11()) {
-        // loads system ScaleFactor from ~/.config/kdeglobals
-        const KConfigGroup cgKScreen(s_kdeGlobalConfig, QStringLiteral("KScreen"));
-        m_systemScaleFactorX11 = cgKScreen.readEntry(QStringLiteral("ScaleFactor"), 1.0f);
-        m_x11Scale *= m_systemScaleFactorX11;
-        m_smallSpacing *= m_systemScaleFactorX11;
-        m_gridUnit *= m_systemScaleFactorX11;
-    }
+    // loads system ScaleFactor from ~/.config/kdeglobals
+    const KConfigGroup cgKScreen(s_kdeGlobalConfig, QStringLiteral("KScreen"));
+    m_systemScaleFactorX11 = cgKScreen.readEntry(QStringLiteral("ScaleFactor"), 1.0f);
+    m_x11Scale *= m_systemScaleFactorX11;
+    m_smallSpacing *= m_systemScaleFactorX11;
+    m_gridUnit *= m_systemScaleFactorX11;
 
     setScaledCornerRadius();
 
@@ -1004,9 +1002,7 @@ void Decoration::updateButtonsGeometry()
                              && (m_internalSettings->windowOutlineStyle(false) == InternalSettings::EnumWindowOutlineStyle::WindowOutlineNone
                                  || m_internalSettings->windowOutlineStyle(false) == InternalSettings::EnumWindowOutlineStyle::WindowOutlineShadowColor))))) {
                 shiftUpWithOutline = PenWidth::Symbol;
-                if (KWindowSystem::isPlatformX11()) {
-                    shiftUpWithOutline *= m_systemScaleFactorX11;
-                }
+                shiftUpWithOutline *= m_systemScaleFactorX11;
             }
             verticalIconOffsetNormal =
                 buttonTopMargin + qreal(captionHeight - m_smallButtonPaddedSize - scaledIntegratedRoundedRectangleBottomPadding - shiftUpWithOutline) / 2;
@@ -1522,8 +1518,7 @@ void Decoration::paintTitleBar(QPainter *painter, const QRectF &repaintRegion)
     if (m_internalSettings->underlineTitle() && c->isActive()) {
         QPen underlinePen(titleBarSeparatorColor());
         qreal penWidth = 1;
-        if (KWindowSystem::isPlatformX11())
-            penWidth *= m_systemScaleFactorX11;
+        penWidth *= m_systemScaleFactorX11;
         penWidth = KDecoration3::snapToPixelGrid(penWidth, scale);
         underlinePen.setWidthF(penWidth);
         painter->setPen(underlinePen);
@@ -1872,16 +1867,9 @@ std::shared_ptr<KDecoration3::DecorationShadow> Decoration::createShadowObject(Q
                 p.setJoinStyle(Qt::MiterJoin);
             qreal outlinePenWidth;
 
-            if (KWindowSystem::isPlatformX11()) {
-                outlinePenWidth = m_internalSettings->windowOutlineThickness() * m_systemScaleFactorX11;
-                if (m_internalSettings->windowOutlineSnapToWholePixel()) {
-                    outlinePenWidth = std::round(outlinePenWidth);
-                }
-            } else {
-                outlinePenWidth = m_internalSettings->windowOutlineThickness();
-                if (m_internalSettings->windowOutlineSnapToWholePixel()) {
-                    outlinePenWidth = KDecoration3::snapToPixelGrid(outlinePenWidth, scale);
-                }
+            outlinePenWidth = m_internalSettings->windowOutlineThickness() * m_systemScaleFactorX11;
+            if (m_internalSettings->windowOutlineSnapToWholePixel()) {
+                outlinePenWidth = std::round(outlinePenWidth);
             }
             // the overlap between the thin window outline and behind the window in unscaled pixels.,
             // and also makes sure that the anti-aliasing blends properly between the window and thin window outline
@@ -2079,15 +2067,8 @@ void Decoration::updateBlur()
         setBlurRegion(QRegion());
     } else { // transparent titlebar colours
         if (m_internalSettings->blurTransparentTitleBars()) { // enable blur
-            // this is a workaround for blur on scaled windows on Wayland - the KDecoration API still uses integer QRegion which is not precise enough to give a
-            // smooth window outline
-            if (KWindowSystem::isPlatformWayland() && window()->nextScale() > 1) {
-                calculateWindowShape(true); // refreshes m_windowPathTrimmedForBlur and trims blur area by 1
-                setBlurRegion(QRegion(m_windowPathTrimmedForBlur.toFillPolygon().toPolygon()));
-            } else {
-                calculateWindowShape(); // refreshes m_windowPath
-                setBlurRegion(QRegion(m_windowPath.toFillPolygon().toPolygon()));
-            }
+            calculateWindowShape(); // refreshes m_windowPath
+            setBlurRegion(QRegion(m_windowPath.toFillPolygon().toPolygon()));
         } else
             setBlurRegion(QRegion());
     }
@@ -2113,8 +2094,7 @@ qreal Decoration::titleBarSeparatorHeight(qreal scale) const
 
     if (m_internalSettings->drawTitleBarSeparator() && !c->isShaded() && !m_toolsAreaWillBeDrawn) {
         qreal height = 1;
-        if (KWindowSystem::isPlatformX11())
-            height *= m_systemScaleFactorX11;
+        height *= m_systemScaleFactorX11;
         return KDecoration3::snapToPixelGrid(height, scale);
     } else
         return 0;

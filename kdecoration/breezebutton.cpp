@@ -729,10 +729,8 @@ void Button::paintFullHeightButtonBackground(QPainter *painter) const
 
     qreal penWidth = PenWidth::Symbol;
     qreal geometryShrinkOffsetHorizontal = PenWidth::Symbol * 1.5;
-    if (KWindowSystem::isPlatformX11()) {
-        penWidth *= m_devicePixelRatio;
-        geometryShrinkOffsetHorizontal *= m_devicePixelRatio;
-    }
+    penWidth *= m_devicePixelRatio;
+    geometryShrinkOffsetHorizontal *= m_devicePixelRatio;
 
     if (m_outlineColor.isValid()) {
         qreal geometryShrinkOffsetVertical = geometryShrinkOffsetHorizontal;
@@ -1046,9 +1044,7 @@ void Button::paintSmallSizedButtonBackground(QPainter *painter) const
     qreal backgroundSize = m_backgroundVisibleSize.width();
 
     qreal penWidth = m_isGtkCsdButton ? m_standardScaledNonCosmeticPenWidth : PenWidth::Symbol;
-    if (KWindowSystem::isPlatformX11()) {
-        penWidth *= m_devicePixelRatio;
-    }
+    penWidth *= m_devicePixelRatio;
 
     if (m_outlineColor.isValid()) {
         QPen pen(m_outlineColor);
@@ -1119,8 +1115,7 @@ void Button::setDevicePixelRatio(QPainter *painter)
     m_devicePixelRatio = painter->device()->devicePixelRatioF();
 
     // on X11 Kwin just returns 1.0 for the DPR instead of the correct value, so use the scaling setting directly
-    if (KWindowSystem::isPlatformX11())
-        m_devicePixelRatio = m_d->systemScaleFactorX11();
+    m_devicePixelRatio = m_d->systemScaleFactorX11();
     if (m_isGtkCsdButton)
         m_devicePixelRatio = 1.0;
 }
