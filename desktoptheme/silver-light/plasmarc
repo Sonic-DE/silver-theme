@@ -2,10 +2,7 @@
 FallbackTheme=breeze-light
 
 [ContrastEffect]
-enabled=true
-contrast=0.2
-intensity=0.6
-saturation=10
+enabled=false
 
 [AdaptiveTransparency]
 enabled=true
