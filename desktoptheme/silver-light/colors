@@ -21,9 +21,9 @@ IntensityEffect=0
 [Colors:Button]
 BackgroundAlternate=240,241,242
 BackgroundNormal=235,237,239
-DecorationFocus=90,90,90
-DecorationHover=80,80,80
-ForegroundActive=80,80,80
+DecorationFocus=57,153,230
+DecorationHover=57,153,230
+ForegroundActive=57,153,230
 ForegroundInactive=130,132,135
 ForegroundLink=66,133,244
 ForegroundNegative=213,15,37
@@ -35,9 +35,9 @@ ForegroundVisited=173,71,176
 [Colors:Complementary]
 BackgroundAlternate=240,241,242
 BackgroundNormal=235,237,239
-DecorationFocus=90,90,90
-DecorationHover=80,80,80
-ForegroundActive=80,80,80
+DecorationFocus=57,153,230
+DecorationHover=57,153,230
+ForegroundActive=57,153,230
 ForegroundInactive=130,132,135
 ForegroundLink=66,133,244
 ForegroundNegative=213,15,37
@@ -48,9 +48,9 @@ ForegroundVisited=173,71,176
 
 [Colors:Selection]
 BackgroundAlternate=230,231,232
-BackgroundNormal=200,200,200
-DecorationFocus=90,90,90
-DecorationHover=80,80,80
+BackgroundNormal=57,153,230
+DecorationFocus=57,153,230
+DecorationHover=57,153,230
 ForegroundActive=255,255,255
 ForegroundInactive=130,132,135
 ForegroundLink=66,133,244
@@ -63,9 +63,9 @@ ForegroundVisited=173,71,176
 [Colors:Tooltip]
 BackgroundAlternate=240,241,242
 BackgroundNormal=235,237,239
-DecorationFocus=90,90,90
-DecorationHover=80,80,80
-ForegroundActive=80,80,80
+DecorationFocus=57,153,230
+DecorationHover=57,153,230
+ForegroundActive=57,153,230
 ForegroundInactive=130,132,135
 ForegroundLink=66,133,244
 ForegroundNegative=213,15,37
@@ -77,9 +77,9 @@ ForegroundVisited=173,71,176
 [Colors:View]
 BackgroundAlternate=240,241,242
 BackgroundNormal=250,250,250
-DecorationFocus=90,90,90
-DecorationHover=80,80,80
-ForegroundActive=80,80,80
+DecorationFocus=57,153,230
+DecorationHover=57,153,230
+ForegroundActive=57,153,230
 ForegroundInactive=130,132,135
 ForegroundLink=66,133,244
 ForegroundNegative=213,15,37
@@ -91,9 +91,9 @@ ForegroundVisited=173,71,176
 [Colors:Window]
 BackgroundAlternate=240,241,242
 BackgroundNormal=245,246,247
-DecorationFocus=90,90,90
-DecorationHover=80,80,80
-ForegroundActive=80,80,80
+DecorationFocus=57,153,230
+DecorationHover=57,153,230
+ForegroundActive=57,153,230
 ForegroundInactive=130,132,135
 ForegroundLink=66,133,244
 ForegroundNegative=213,15,37
