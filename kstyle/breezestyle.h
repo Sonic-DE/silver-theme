@@ -17,6 +17,8 @@
 #include <KStyle>
 #endif
 
+#include <KConfigWatcher>
+
 #include <QAbstractItemView>
 #include <QAbstractScrollArea>
 
@@ -512,6 +514,9 @@ private:
     QPointer<QFocusFrame> _focusFrame;
 
     std::shared_ptr<Helper> _helper;
+
+    //* config watcher for silver/silverrc
+    KConfigWatcher::Ptr _configWatcher;
 
     std::unique_ptr<ShadowHelper> _shadowHelper;
     std::unique_ptr<Animations> _animations;

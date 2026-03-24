@@ -25,6 +25,7 @@
 #include "decorationcolors.h"
 
 #include <KColorUtils>
+#include <KConfigWatcher>
 #include <KIconLoader>
 #include <KWindowEffects>
 #include <kguiaddons_version.h>
@@ -328,6 +329,12 @@ Style::Style()
     // call the slot directly; this initial call will set up things that also
     // need to be reset when the system palette changes
     loadConfiguration();
+
+    // Watch for changes to silver/silverrc config file to reload settings without restart
+    _configWatcher = KConfigWatcher::create(KSharedConfig::openConfig(QStringLiteral("silver/silverrc")));
+    connect(_configWatcher.data(), &KConfigWatcher::configChanged, this, [this](const KConfigGroup &, const QByteArrayList &) {
+        loadConfiguration();
+    });
 
 #if HAVE_QTDBUS
     connect(&g_dBusUpdateNotifier,
