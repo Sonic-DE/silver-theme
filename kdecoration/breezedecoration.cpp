@@ -1785,11 +1785,9 @@ void Decoration::updateShadow(const bool forceUpdateCache, bool noCache, const b
     setShadow(*shadow);
 }
 
-//________________________________________________________________
 std::shared_ptr<KDecoration3::DecorationShadow> Decoration::createShadowObject(QColor shadowColor, const bool isWindowOutlineOverride)
 {
     auto c = window();
-    const qreal scale = c->nextScale();
 
     // determine when a window outline does not need to be drawn (even when set to none, sometimes needs to be drawn if there is an animation)
     bool windowOutlineNone =
